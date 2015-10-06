@@ -10,7 +10,7 @@ angular.module('tljs.blog', ['ngRoute'])
 	}])
 
 	.controller('BlogCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
-		$http.get('_posts/posts.json').success(function (data) {
+		$http.get('posts/posts.json').success(function (data) {
 			$scope.posts = data;
 		});
 
