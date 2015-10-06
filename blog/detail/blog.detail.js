@@ -21,13 +21,20 @@ angular.module('tljs.blog.detail', ['ngRoute'])
 	})
 
 	.controller('BlogDetailCtrl', ['$scope', '$location', '$http', '$routeParams', function ($scope, $location, $http, $routeParams) {
-		$http.get('posts/posts.json').success(function (data) {
-			for (var i in data) {
-				data[i].date = moment(data[i].date).format('DD MMM YYYY');
+		var posts = [
+			{
+				"id": 1,
+				"title": "First Post",
+				"date": "2015-09-23",
+				"text": "This is the first post on the tl.js blog. This will be a place to suggest ideas and improve the site."
 			}
+		];
 
-			$scope.posts = data;
-		});
+		for (var i in posts) {
+			posts[i].date = moment(posts[i].date).format('DD MMM YYYY');
+		}
+
+		$scope.posts = posts;
 
 		$scope.selectedPostId = $routeParams.id;
 

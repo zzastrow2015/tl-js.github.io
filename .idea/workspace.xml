@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daa577b4-c360-43db-bba9-78c6c9696e28" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2015-09-23-tl-js-first-post.md" afterPath="$PROJECT_DIR$/posts/2015-09-23-tl-js-first-post.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/posts.json" afterPath="$PROJECT_DIR$/posts/posts.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/detail/blog.detail.js" afterPath="$PROJECT_DIR$/blog/detail/blog.detail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/blog.js" afterPath="$PROJECT_DIR$/blog/blog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Capstone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +47,8 @@
       <file leaf-file-name="posts.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts/posts.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="6" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -72,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/blog/blog.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -92,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/blog/detail/blog.detail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+              <caret line="22" column="132" selection-start-line="22" selection-start-column="132" selection-end-line="22" selection-end-column="132" />
               <folding />
             </state>
           </provider>
@@ -101,7 +97,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.058027077">
+            <state vertical-scroll-proportion="0.05514706">
               <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
@@ -158,9 +154,9 @@
         <option value="$PROJECT_DIR$/blog/blog.html" />
         <option value="$PROJECT_DIR$/about/about.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/blog/blog.js" />
         <option value="$PROJECT_DIR$/blog/detail/blog.detail.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -539,14 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/posts.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/about/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.25">
@@ -571,10 +559,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/posts/posts.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blog/blog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -582,14 +578,14 @@
     <entry file="file://$PROJECT_DIR$/blog/detail/blog.detail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <caret line="22" column="132" selection-start-line="22" selection-start-column="132" selection-end-line="22" selection-end-column="132" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.058027077">
+        <state vertical-scroll-proportion="0.05514706">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
