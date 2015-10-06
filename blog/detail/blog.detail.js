@@ -21,7 +21,7 @@ angular.module('tljs.blog.detail', ['ngRoute'])
 	})
 
 	.controller('BlogDetailCtrl', ['$scope', '$location', '$http', '$routeParams', function ($scope, $location, $http, $routeParams) {
-		$http.get('_posts/posts.json').success(function (data) {
+		$http.get('posts/posts.json').success(function (data) {
 			for (var i in data) {
 				data[i].date = moment(data[i].date).format('DD MMM YYYY');
 			}
