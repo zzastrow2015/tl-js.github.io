@@ -1,8 +1,52 @@
----
-layout: default
-title: tl.js
----
-<div class="blurb">
-	<h1>This will be the landing page for tl.js</h1>
-	<p>It is currently under construction</p>
-</div><!-- blurb -->
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="tljs" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="tljs" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="tljs" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="tljs" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TLJS</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="includes/moment.js"></script>
+	<script src="includes/require.min.js"></script>
+</head>
+<body>
+
+<nav>
+	<ul>
+		<li><a href="#/home">Home</a></li>
+		<li><a href="#/about">About</a></li>
+		<li><a href="#/blog">Blog</a></li>
+	</ul>
+</nav>
+
+<div ng-view></div>
+
+<footer>
+	<ul>
+		<li><a href="mailto:colejurden@gmail.com">email</a></li>
+		<li><a href="https://github.com/tl-js">github.com/tl-js</a></li>
+	</ul>
+</footer>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="home/home.js"></script>
+<script src="about/about.js"></script>
+<script src="blog/blog.js"></script>
+<script src="blog/detail/blog.detail.js"></script>
+</body>
+</html>
