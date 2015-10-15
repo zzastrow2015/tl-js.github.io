@@ -11,7 +11,7 @@ var timeline = (function () {
 	var data = {};
 
 	// Initial Values
-	var split_time = 5;
+	var split_time = 10;
 	var start_year = 1800;
 	var end_year = 2000;
 	var time_gap = (end_year - start_year);
@@ -33,11 +33,73 @@ var timeline = (function () {
 	//Link in the css for the timeline
 	loadCSSIfNotAlreadyLoaded();
 
+	function calculateXValueForEvent(date) {
+		var yearVal = (((date.year - start_year)/split_time) + 1) * rulerYearGap;
+		var dayVal = date.day;
+
+		//Add all days from the previous month
+		if (date.month >= 1) { //January
+
+		}
+		if (date.month >= 2) { //February
+			dayVal += 31;
+		}
+		if (date.month >= 3) { //March
+			dayVal += 28;
+		}
+		if (date.month >= 4) { //April
+			dayVal += 31;
+		}
+		if (date.month >= 5) { //May
+			dayVal += 30;
+		}
+		if (date.month >= 6) { //June
+			dayVal += 31;
+		}
+		if (date.month >= 7) { //July
+			dayVal += 30;
+		}
+		if (date.month >= 8) { //August
+			dayVal += 31;
+		}
+		if (date.month >= 9) { //September
+			dayVal += 31;
+		}
+		if (date.month >= 10) { //October
+			dayVal += 30;
+		}
+		if (date.month >= 11) { //November
+			dayVal += 31;
+		}
+		if (date.month >= 12) { //December
+			dayVal += 30;
+		}
+
+		dayVal = (dayVal/365)*(rulerYearGap/split_time);
+
+		console.log(yearVal + dayVal);
+
+		return yearVal + dayVal;
+	}
+
 	//Utility function used to draw an event onto the timeline
 	function addEvent(ctx, event) {
-		var addDistance = (((event.date.year - start_year)/split_time) + 1) * rulerYearGap;
-
+		//TODO: Add the ability for events to be moved to a lower level
+		var addDistance = calculateXValueForEvent(event.date);
 		drawCircle(ctx, addDistance, rulerHeight-20, 4,"rgba(0,0,0,.75)");
+
+		drawLine(ctx, addDistance, rulerHeight-20, addDistance, 10, "rgba(0,0,0,.75)", 2);
+
+		drawRect(ctx, addDistance, 10, addDistance+60, 35, "red");
+		drawText(ctx, addDistance+30, 30, event.title, "15px Arial");
+
+		/*Need to add a clickable area for the event
+		*The div will have:
+		 *  left = addDistance
+		 *  top = 10
+		 *  width = 60
+		 *  height = 35-10
+		*/
 	}
 
 	//Utility function used to draw a circle on the canvas
@@ -52,6 +114,10 @@ var timeline = (function () {
 			else {
 				ctx.fillStyle = color;
 			}
+		}
+		else {
+			ctx.strokeStyle = "black";
+			ctx.fillStyle = "black";
 		}
 		if (notFilled) {
 			ctx.stroke();
@@ -70,6 +136,9 @@ var timeline = (function () {
 			if (color) {
 				ctx.strokeStyle = color;
 			}
+			else {
+				fillStyle = "black";
+			}
 			if (lineWidth) {
 				ctx.lineWidth = "" + lineWidth + "";
 			}
@@ -78,6 +147,9 @@ var timeline = (function () {
 		else {
 			if (color) {
 				ctx.fillStyle = color;
+			}
+			else {
+				ctx.fillStyle = "black";
 			}
 			ctx.fillRect(topX, topY, width, height);
 		}
@@ -91,6 +163,9 @@ var timeline = (function () {
 		}
 		if (color) {
 			ctx.strokeStyle = color;
+		}
+		else {
+			ctx.strokeStyle = "black";
 		}
 		ctx.moveTo(startX, startY);
 		ctx.lineTo(endX, endY);
@@ -201,8 +276,6 @@ var timeline = (function () {
 		}
 
 		function sortByDate(a,b) {
-			//a < b return -1
-			//a > b return 1
 			if (a.date.year < b.date.year) {
 				return -1;
 			}
@@ -274,6 +347,15 @@ var events = [
 		},
 		"title": "Event 3",
 		"description": "Event 3 Description"
+	},
+	{
+		"date":{
+			"year":1600,
+			"day":20,
+			"month":11
+		},
+		"title": "Event 4",
+		"description": "Event 4 Description"
 	}
 ];
 
