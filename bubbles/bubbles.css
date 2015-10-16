@@ -77,7 +77,7 @@
 
 .bubble-center {
 	background:blue;
-	background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');
+	/*background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -115,9 +115,9 @@
 
 .bubble-fa-icon {
 	text-align: center;
-	width: 1.25em;
-	margin-top: 10px;
-	font-size: 7em !important;
+	width: 1.75em;
+	font-size: 5em !important;
+	margin: .2em auto
 }
 
 .bubble-fa-icon-center {

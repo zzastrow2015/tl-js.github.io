@@ -1,30 +1,30 @@
 <div id="bubble-container" class='bubble-container'>
-	<div class='center bubble-center' ng-click="poke()">
+	<div id="centerDiv" class='center bubble-center' ng-click="poke(0)">
 
 	</div>
 
-	<div class='deg-0 bubble-ring' ng-click="poke()">
-		<i class="fa fa-lightbulb-o bubble-fa-icon"></i>
+	<div ng-show="bubble1" class='deg-0 bubble-ring' ng-click="poke(1)">
+		<i class="fa bubble-fa-icon" ng-class="bubble1Icon"></i>
 	</div>
-	<div class='deg-45 bubble-ring' ng-click="poke()">
-		<i class="fa fa-map-o bubble-fa-icon"></i>
+	<div ng-show="bubble2" class='deg-45 bubble-ring' ng-click="poke(2)">
+		<i class="fa bubble-fa-icon" ng-class="bubble2Icon"></i>
 	</div>
-	<div class='deg-135 bubble-ring' ng-click="poke()">
-		<i class="fa fa-music bubble-fa-icon"></i>
+	<div ng-show="bubble3" class='deg-135 bubble-ring' ng-click="poke(3)">
+		<i class="fa bubble-fa-icon" ng-class="bubble3Icon"></i>
 	</div>
-	<div class='deg-180 bubble-ring' ng-click="poke()">
-		<i class="fa fa-book bubble-fa-icon"></i>
+	<div ng-show="bubble4" class='deg-180 bubble-ring' ng-click="poke(4)">
+		<i class="fa bubble-fa-icon" ng-class="bubble4Icon"></i>
 	</div>
-	<div class='deg-225 bubble-ring' ng-click="poke()">
-		<i class="fa fa-bomb bubble-fa-icon"></i>
+	<div ng-show="bubble5" class='deg-225 bubble-ring' ng-click="poke(5)">
+		<i class="fa bubble-fa-icon" ng-class="bubble5Icon"></i>
 	</div>
-	<div class='deg-315 bubble-ring' ng-click="poke()">
-		<i class="fa fa-bell bubble-fa-icon"></i>
+	<div ng-show="bubble6" class='deg-315 bubble-ring' ng-click="poke(6)">
+		<i class="fa bubble-fa-icon" ng-class="bubble6Icon"></i>
 	</div>
-	<div class='deg-90 bubble-ring' ng-click="poke()">
-		<i class="fa fa-car bubble-fa-icon"></i>
+	<div ng-show="bubble7" class='deg-90 bubble-ring' ng-click="poke(7)">
+		<i class="fa bubble-fa-icon" ng-class="bubble7Icon"></i>
 	</div>
-	<div class='deg-270 bubble-ring' ng-click="poke()">
-		<i class="fa fa-user bubble-fa-icon"></i>
+	<div ng-show="bubble8" class='deg-270 bubble-ring' ng-click="poke(8)">
+		<i class="fa bubble-fa-icon" ng-class="bubble8Icon"></i>
 	</div>
 </div>
