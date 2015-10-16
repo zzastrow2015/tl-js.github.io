@@ -93,6 +93,7 @@
 	width: 14.5em;
 	bottom: 1em;
 	left: 0em;
+	text-shadow: -2px 0 gray, 0 2px gray, 2px 0 gray, 0 -2px gray;
 }
 
 .bubble-ring {
