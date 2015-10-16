@@ -77,7 +77,6 @@
 
 .bubble-center {
 	background:blue;
-	/*background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -92,12 +91,16 @@
 	position: absolute;
 	width: 14.5em;
 	bottom: 1em;
-	left: 0em;
-	text-shadow: -2px 0 gray, 0 2px gray, 2px 0 gray, 0 -2px gray;
+	left: 0;
+	color: white;
+	text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
 
 .bubble-ring {
 	background: blue;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	border-radius: 50%;
 	margin: -4.5em !important;
 	width: 9em !important;
@@ -124,6 +127,8 @@
 
 .bubble-container span {
 	font-size: 1.25em;
+	color: white;
+	text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
 
 .bubble-fa-icon {
