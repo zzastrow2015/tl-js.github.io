@@ -96,8 +96,12 @@ angular.module('bubbleView.view', ['ngRoute'])
 						centerDiv.setAttribute("style", "background-image:url('http://dreamatico.com/data_images/kitten/kitten-7.jpg')");
 					}
 					hasBackground = !hasBackground;
-					$scope.bubbleStyle1 = !$scope.bubbleStyle1;
-					$scope.bubbleStyle2 = !$scope.bubbleStyle2;
+					if ($scope.bubbleStyle == 1) {
+						$scope.bubbleStyle = 2;
+					}
+					else {
+						$scope.bubbleStyle = 1;
+					}
 					//$scope.bubble1 = true;
 					//$scope.bubble2 = true;
 					//$scope.bubble3 = true;
@@ -163,8 +167,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 		$scope.bubble7 = true;
 		$scope.bubble8 = true;
 
-		$scope.bubbleStyle1 = true;
-		$scope.bubbleStyle2 = false;
+		$scope.bubbleStyle = 1;
 
 		$scope.bubble1Icon = "fa-lightbulb-o";
 		$scope.bubble1Text = "lightbulb-o";
