@@ -103,34 +103,42 @@ angular.module('bubbleView.view', ['ngRoute'])
 					break;
 				case 1:
 					$scope.bubble1Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble1Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble1 = false;
 					break;
 				case 2:
 					$scope.bubble2Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble2Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble2 = false;
 					break;
 				case 3:
 					$scope.bubble3Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble3Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble3 = false;
 					break;
 				case 4:
 					$scope.bubble4Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble4Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble4 = false;
 					break;
 				case 5:
 					$scope.bubble5Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble5Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble5 = false;
 					break;
 				case 6:
 					$scope.bubble6Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble6Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble6 = false;
 					break;
 				case 7:
 					$scope.bubble7Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble7Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble7 = false;
 					break;
 				case 8:
 					$scope.bubble8Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble8Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble8 = false;
 					break;
 			}
@@ -150,13 +158,21 @@ angular.module('bubbleView.view', ['ngRoute'])
 		$scope.bubble8 = true;
 
 		$scope.bubble1Icon = "fa-lightbulb-o";
+		$scope.bubble1Text = "lightbulb-o";
 		$scope.bubble2Icon = "fa-map-o";
+		$scope.bubble2Text = "map-o";
 		$scope.bubble3Icon = "fa-music";
+		$scope.bubble3Text = "music";
 		$scope.bubble4Icon = "fa-book";
+		$scope.bubble4Text = "book";
 		$scope.bubble5Icon = "fa-bomb";
+		$scope.bubble5Text = "bomb";
 		$scope.bubble6Icon = "fa-bell";
+		$scope.bubble6Text = "bell";
 		$scope.bubble7Icon = "fa-car";
+		$scope.bubble7Text = "car";
 		$scope.bubble8Icon = "fa-briefcase";
+		$scope.bubble8Text = "briefcase";
 
 //In order to scale the bubble view you can mess with the font-size style on the bubble-container div. Default is 16px
 //In order to calculate the right font-size: take the current height and divide by 37 (number of em's from top to bottom with all circles shown.
