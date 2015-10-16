@@ -1,179 +1,98 @@
-.deg-0 { transform: rotate(0deg) translate(12em) rotate(-0deg); }
-.deg-5 { transform: rotate(5deg) translate(12em) rotate(-5deg); }
-.deg-10 { transform: rotate(10deg) translate(12em) rotate(-10deg); }
-.deg-15 { transform: rotate(15deg) translate(12em) rotate(-15deg); }
-.deg-20 { transform: rotate(20deg) translate(12em) rotate(-20deg); }
-.deg-25 { transform: rotate(25deg) translate(12em) rotate(-25deg); }
-.deg-30 { transform: rotate(30deg) translate(12em) rotate(-30deg); }
-.deg-35 { transform: rotate(35deg) translate(12em) rotate(-35deg); }
-.deg-40 { transform: rotate(40deg) translate(12em) rotate(-40deg); }
-.deg-45 { transform: rotate(45deg) translate(12em) rotate(-45deg); }
-.deg-50 { transform: rotate(50deg) translate(12em) rotate(-50deg); }
-.deg-55 { transform: rotate(55deg) translate(12em) rotate(-55deg); }
-.deg-60 { transform: rotate(60deg) translate(12em) rotate(-60deg); }
-.deg-65 { transform: rotate(65deg) translate(12em) rotate(-65deg); }
-.deg-70 { transform: rotate(70deg) translate(12em) rotate(-70deg); }
-.deg-75 { transform: rotate(75deg) translate(12em) rotate(-75deg); }
-.deg-80 { transform: rotate(80deg) translate(12em) rotate(-80deg); }
-.deg-85 { transform: rotate(85deg) translate(12em) rotate(-85deg); }
-.deg-90 { transform: rotate(90deg) translate(12em) rotate(-90deg); }
+.deg-0   { transform: rotate(0deg)   translate(14em) rotate(-0deg); }
+.deg-5   { transform: rotate(5deg)   translate(14em) rotate(-5deg); }
+.deg-10  { transform: rotate(10deg)  translate(14em) rotate(-10deg); }
+.deg-15  { transform: rotate(15deg)  translate(14em) rotate(-15deg); }
+.deg-20  { transform: rotate(20deg)  translate(14em) rotate(-20deg); }
+.deg-25  { transform: rotate(25deg)  translate(14em) rotate(-25deg); }
+.deg-30  { transform: rotate(30deg)  translate(14em) rotate(-30deg); }
+.deg-35  { transform: rotate(35deg)  translate(14em) rotate(-35deg); }
+.deg-40  { transform: rotate(40deg)  translate(14em) rotate(-40deg); }
+.deg-45  { transform: rotate(45deg)  translate(14em) rotate(-45deg); }
+.deg-50  { transform: rotate(50deg)  translate(14em) rotate(-50deg); }
+.deg-55  { transform: rotate(55deg)  translate(14em) rotate(-55deg); }
+.deg-60  { transform: rotate(60deg)  translate(14em) rotate(-60deg); }
+.deg-65  { transform: rotate(65deg)  translate(14em) rotate(-65deg); }
+.deg-70  { transform: rotate(70deg)  translate(14em) rotate(-70deg); }
+.deg-75  { transform: rotate(75deg)  translate(14em) rotate(-75deg); }
+.deg-80  { transform: rotate(80deg)  translate(14em) rotate(-80deg); }
+.deg-85  { transform: rotate(85deg)  translate(14em) rotate(-85deg); }
+.deg-90  { transform: rotate(90deg)  translate(14em) rotate(-90deg); }
 
-.deg-95 { transform: rotate(95deg) translate(12em) rotate(-95deg); }
-.deg-100 { transform: rotate(100deg) translate(12em) rotate(-100deg); }
-.deg-105 { transform: rotate(105deg) translate(12em) rotate(-105deg); }
-.deg-110 { transform: rotate(110deg) translate(12em) rotate(-110deg); }
-.deg-115 { transform: rotate(115deg) translate(12em) rotate(-115deg); }
-.deg-120 { transform: rotate(120deg) translate(12em) rotate(-120deg); }
-.deg-125 { transform: rotate(125deg) translate(12em) rotate(-125deg); }
-.deg-130 { transform: rotate(130deg) translate(12em) rotate(-130deg); }
-.deg-135 { transform: rotate(135deg) translate(12em) rotate(-135deg); }
-.deg-140 { transform: rotate(140deg) translate(12em) rotate(-140deg); }
-.deg-145 { transform: rotate(145deg) translate(12em) rotate(-145deg); }
-.deg-150 { transform: rotate(150deg) translate(12em) rotate(-150deg); }
-.deg-155 { transform: rotate(155deg) translate(12em) rotate(-155deg); }
-.deg-160 { transform: rotate(160deg) translate(12em) rotate(-160deg); }
-.deg-165 { transform: rotate(165deg) translate(12em) rotate(-165deg); }
-.deg-170 { transform: rotate(170deg) translate(12em) rotate(-170deg); }
-.deg-175 { transform: rotate(175deg) translate(12em) rotate(-175deg); }
-.deg-180 { transform: rotate(180deg) translate(12em) rotate(-180deg); }
+.deg-95  { transform: rotate(95deg)  translate(14em) rotate(-95deg); }
+.deg-100 { transform: rotate(100deg) translate(14em) rotate(-100deg); }
+.deg-105 { transform: rotate(105deg) translate(14em) rotate(-105deg); }
+.deg-110 { transform: rotate(110deg) translate(14em) rotate(-110deg); }
+.deg-115 { transform: rotate(115deg) translate(14em) rotate(-115deg); }
+.deg-120 { transform: rotate(120deg) translate(14em) rotate(-120deg); }
+.deg-125 { transform: rotate(125deg) translate(14em) rotate(-125deg); }
+.deg-130 { transform: rotate(130deg) translate(14em) rotate(-130deg); }
+.deg-135 { transform: rotate(135deg) translate(14em) rotate(-135deg); }
+.deg-140 { transform: rotate(140deg) translate(14em) rotate(-140deg); }
+.deg-145 { transform: rotate(145deg) translate(14em) rotate(-145deg); }
+.deg-150 { transform: rotate(150deg) translate(14em) rotate(-150deg); }
+.deg-155 { transform: rotate(155deg) translate(14em) rotate(-155deg); }
+.deg-160 { transform: rotate(160deg) translate(14em) rotate(-160deg); }
+.deg-165 { transform: rotate(165deg) translate(14em) rotate(-165deg); }
+.deg-170 { transform: rotate(170deg) translate(14em) rotate(-170deg); }
+.deg-175 { transform: rotate(175deg) translate(14em) rotate(-175deg); }
+.deg-180 { transform: rotate(180deg) translate(14em) rotate(-180deg); }
 
-.deg-185 { transform: rotate(185deg) translate(12em) rotate(-185deg); }
-.deg-190 { transform: rotate(190deg) translate(12em) rotate(-190deg); }
-.deg-195 { transform: rotate(195deg) translate(12em) rotate(-195deg); }
-.deg-200 { transform: rotate(200deg) translate(12em) rotate(-200deg); }
-.deg-205 { transform: rotate(205deg) translate(12em) rotate(-205deg); }
-.deg-210 { transform: rotate(210deg) translate(12em) rotate(-210deg); }
-.deg-215 { transform: rotate(215deg) translate(12em) rotate(-215deg); }
-.deg-220 { transform: rotate(220deg) translate(12em) rotate(-220deg); }
-.deg-225 { transform: rotate(225deg) translate(12em) rotate(-225deg); }
-.deg-230 { transform: rotate(230deg) translate(12em) rotate(-230deg); }
-.deg-235 { transform: rotate(235deg) translate(12em) rotate(-235deg); }
-.deg-240 { transform: rotate(240deg) translate(12em) rotate(-240deg); }
-.deg-245 { transform: rotate(245deg) translate(12em) rotate(-245deg); }
-.deg-250 { transform: rotate(250deg) translate(12em) rotate(-250deg); }
-.deg-255 { transform: rotate(255deg) translate(12em) rotate(-255deg); }
-.deg-260 { transform: rotate(260deg) translate(12em) rotate(-260deg); }
-.deg-265 { transform: rotate(265deg) translate(12em) rotate(-265deg); }
-.deg-270 { transform: rotate(270deg) translate(12em) rotate(-270deg); }
+.deg-185 { transform: rotate(185deg) translate(14em) rotate(-185deg); }
+.deg-190 { transform: rotate(190deg) translate(14em) rotate(-190deg); }
+.deg-195 { transform: rotate(195deg) translate(14em) rotate(-195deg); }
+.deg-200 { transform: rotate(200deg) translate(14em) rotate(-200deg); }
+.deg-205 { transform: rotate(205deg) translate(14em) rotate(-205deg); }
+.deg-210 { transform: rotate(210deg) translate(14em) rotate(-210deg); }
+.deg-215 { transform: rotate(215deg) translate(14em) rotate(-215deg); }
+.deg-220 { transform: rotate(220deg) translate(14em) rotate(-220deg); }
+.deg-225 { transform: rotate(225deg) translate(14em) rotate(-225deg); }
+.deg-230 { transform: rotate(230deg) translate(14em) rotate(-230deg); }
+.deg-235 { transform: rotate(235deg) translate(14em) rotate(-235deg); }
+.deg-240 { transform: rotate(240deg) translate(14em) rotate(-240deg); }
+.deg-245 { transform: rotate(245deg) translate(14em) rotate(-245deg); }
+.deg-250 { transform: rotate(250deg) translate(14em) rotate(-250deg); }
+.deg-255 { transform: rotate(255deg) translate(14em) rotate(-255deg); }
+.deg-260 { transform: rotate(260deg) translate(14em) rotate(-260deg); }
+.deg-265 { transform: rotate(265deg) translate(14em) rotate(-265deg); }
+.deg-270 { transform: rotate(270deg) translate(14em) rotate(-270deg); }
 
-.deg-275 { transform: rotate(275deg) translate(12em) rotate(-275deg); }
-.deg-280 { transform: rotate(280deg) translate(12em) rotate(-280deg); }
-.deg-285 { transform: rotate(285deg) translate(12em) rotate(-285deg); }
-.deg-290 { transform: rotate(290deg) translate(12em) rotate(-290deg); }
-.deg-295 { transform: rotate(295deg) translate(12em) rotate(-295deg); }
-.deg-300 { transform: rotate(300deg) translate(12em) rotate(-300deg); }
-.deg-305 { transform: rotate(305deg) translate(12em) rotate(-305deg); }
-.deg-310 { transform: rotate(310deg) translate(12em) rotate(-310deg); }
-.deg-315 { transform: rotate(315deg) translate(12em) rotate(-315deg); }
-.deg-320 { transform: rotate(320deg) translate(12em) rotate(-320deg); }
-.deg-325 { transform: rotate(325deg) translate(12em) rotate(-325deg); }
-.deg-330 { transform: rotate(330deg) translate(12em) rotate(-330deg); }
-.deg-335 { transform: rotate(335deg) translate(12em) rotate(-335deg); }
-.deg-340 { transform: rotate(340deg) translate(12em) rotate(-340deg); }
-.deg-345 { transform: rotate(345deg) translate(12em) rotate(-345deg); }
-.deg-350 { transform: rotate(350deg) translate(12em) rotate(-350deg); }
-.deg-355 { transform: rotate(355deg) translate(12em) rotate(-355deg); }
-.deg-360 { transform: rotate(360deg) translate(12em) rotate(-360deg); }
-
-.deg-0-ring-2 { transform: rotate(0deg) translate(19em) rotate(-0deg); }
-.deg-5-ring-2 { transform: rotate(5deg) translate(19em) rotate(-5deg); }
-.deg-10-ring-2 { transform: rotate(10deg) translate(19em) rotate(-10deg); }
-.deg-15-ring-2 { transform: rotate(15deg) translate(19em) rotate(-15deg); }
-.deg-20-ring-2 { transform: rotate(20deg) translate(19em) rotate(-20deg); }
-.deg-25-ring-2 { transform: rotate(25deg) translate(19em) rotate(-25deg); }
-.deg-30-ring-2 { transform: rotate(30deg) translate(19em) rotate(-30deg); }
-.deg-35-ring-2 { transform: rotate(35deg) translate(19em) rotate(-35deg); }
-.deg-40-ring-2 { transform: rotate(40deg) translate(19em) rotate(-40deg); }
-.deg-45-ring-2 { transform: rotate(45deg) translate(19em) rotate(-45deg); }
-.deg-50-ring-2 { transform: rotate(50deg) translate(19em) rotate(-50deg); }
-.deg-55-ring-2 { transform: rotate(55deg) translate(19em) rotate(-55deg); }
-.deg-60-ring-2 { transform: rotate(60deg) translate(19em) rotate(-60deg); }
-.deg-65-ring-2 { transform: rotate(65deg) translate(19em) rotate(-65deg); }
-.deg-70-ring-2 { transform: rotate(70deg) translate(19em) rotate(-70deg); }
-.deg-75-ring-2 { transform: rotate(75deg) translate(19em) rotate(-75deg); }
-.deg-80-ring-2 { transform: rotate(80deg) translate(19em) rotate(-80deg); }
-.deg-85-ring-2 { transform: rotate(85deg) translate(19em) rotate(-85deg); }
-.deg-90-ring-2 { transform: rotate(90deg) translate(19em) rotate(-90deg); }
-
-.deg-95-ring-2 { transform: rotate(95deg) translate(19em) rotate(-95deg); }
-.deg-100-ring-2 { transform: rotate(100deg) translate(19em) rotate(-100deg); }
-.deg-105-ring-2 { transform: rotate(105deg) translate(19em) rotate(-105deg); }
-.deg-110-ring-2 { transform: rotate(110deg) translate(19em) rotate(-110deg); }
-.deg-115-ring-2 { transform: rotate(115deg) translate(19em) rotate(-115deg); }
-.deg-120-ring-2 { transform: rotate(120deg) translate(19em) rotate(-120deg); }
-.deg-125-ring-2 { transform: rotate(125deg) translate(19em) rotate(-125deg); }
-.deg-130-ring-2 { transform: rotate(130deg) translate(19em) rotate(-130deg); }
-.deg-135-ring-2 { transform: rotate(135deg) translate(19em) rotate(-135deg); }
-.deg-140-ring-2 { transform: rotate(140deg) translate(19em) rotate(-140deg); }
-.deg-145-ring-2 { transform: rotate(145deg) translate(19em) rotate(-145deg); }
-.deg-150-ring-2 { transform: rotate(150deg) translate(19em) rotate(-150deg); }
-.deg-155-ring-2 { transform: rotate(155deg) translate(19em) rotate(-155deg); }
-.deg-160-ring-2 { transform: rotate(160deg) translate(19em) rotate(-160deg); }
-.deg-165-ring-2 { transform: rotate(165deg) translate(19em) rotate(-165deg); }
-.deg-170-ring-2 { transform: rotate(170deg) translate(19em) rotate(-170deg); }
-.deg-175-ring-2 { transform: rotate(175deg) translate(19em) rotate(-175deg); }
-.deg-180-ring-2 { transform: rotate(180deg) translate(19em) rotate(-180deg); }
-
-.deg-185-ring-2 { transform: rotate(185deg) translate(19em) rotate(-185deg); }
-.deg-190-ring-2 { transform: rotate(190deg) translate(19em) rotate(-190deg); }
-.deg-195-ring-2 { transform: rotate(195deg) translate(19em) rotate(-195deg); }
-.deg-200-ring-2 { transform: rotate(200deg) translate(19em) rotate(-200deg); }
-.deg-205-ring-2 { transform: rotate(205deg) translate(19em) rotate(-205deg); }
-.deg-210-ring-2 { transform: rotate(210deg) translate(19em) rotate(-210deg); }
-.deg-215-ring-2 { transform: rotate(215deg) translate(19em) rotate(-215deg); }
-.deg-220-ring-2 { transform: rotate(220deg) translate(19em) rotate(-220deg); }
-.deg-225-ring-2 { transform: rotate(225deg) translate(19em) rotate(-225deg); }
-.deg-230-ring-2 { transform: rotate(230deg) translate(19em) rotate(-230deg); }
-.deg-235-ring-2 { transform: rotate(235deg) translate(19em) rotate(-235deg); }
-.deg-240-ring-2 { transform: rotate(240deg) translate(19em) rotate(-240deg); }
-.deg-245-ring-2 { transform: rotate(245deg) translate(19em) rotate(-245deg); }
-.deg-250-ring-2 { transform: rotate(250deg) translate(19em) rotate(-250deg); }
-.deg-255-ring-2 { transform: rotate(255deg) translate(19em) rotate(-255deg); }
-.deg-260-ring-2 { transform: rotate(260deg) translate(19em) rotate(-260deg); }
-.deg-265-ring-2 { transform: rotate(265deg) translate(19em) rotate(-265deg); }
-.deg-270-ring-2 { transform: rotate(270deg) translate(19em) rotate(-270deg); }
-
-.deg-275-ring-2 { transform: rotate(275deg) translate(19em) rotate(-275deg); }
-.deg-280-ring-2 { transform: rotate(280deg) translate(19em) rotate(-280deg); }
-.deg-285-ring-2 { transform: rotate(285deg) translate(19em) rotate(-285deg); }
-.deg-290-ring-2 { transform: rotate(290deg) translate(19em) rotate(-290deg); }
-.deg-295-ring-2 { transform: rotate(295deg) translate(19em) rotate(-295deg); }
-.deg-300-ring-2 { transform: rotate(300deg) translate(19em) rotate(-300deg); }
-.deg-305-ring-2 { transform: rotate(305deg) translate(19em) rotate(-305deg); }
-.deg-310-ring-2 { transform: rotate(310deg) translate(19em) rotate(-310deg); }
-.deg-315-ring-2 { transform: rotate(315deg) translate(19em) rotate(-315deg); }
-.deg-320-ring-2 { transform: rotate(320deg) translate(19em) rotate(-320deg); }
-.deg-325-ring-2 { transform: rotate(325deg) translate(19em) rotate(-325deg); }
-.deg-330-ring-2 { transform: rotate(330deg) translate(19em) rotate(-330deg); }
-.deg-335-ring-2 { transform: rotate(335deg) translate(19em) rotate(-335deg); }
-.deg-340-ring-2 { transform: rotate(340deg) translate(19em) rotate(-340deg); }
-.deg-345-ring-2 { transform: rotate(345deg) translate(19em) rotate(-345deg); }
-.deg-350-ring-2 { transform: rotate(350deg) translate(19em) rotate(-350deg); }
-.deg-355-ring-2 { transform: rotate(355deg) translate(19em) rotate(-355deg); }
-.deg-360-ring-2 { transform: rotate(360deg) translate(19em) rotate(-360deg); }
+.deg-275 { transform: rotate(275deg) translate(14em) rotate(-275deg); }
+.deg-280 { transform: rotate(280deg) translate(14em) rotate(-280deg); }
+.deg-285 { transform: rotate(285deg) translate(14em) rotate(-285deg); }
+.deg-290 { transform: rotate(290deg) translate(14em) rotate(-290deg); }
+.deg-295 { transform: rotate(295deg) translate(14em) rotate(-295deg); }
+.deg-300 { transform: rotate(300deg) translate(14em) rotate(-300deg); }
+.deg-305 { transform: rotate(305deg) translate(14em) rotate(-305deg); }
+.deg-310 { transform: rotate(310deg) translate(14em) rotate(-310deg); }
+.deg-315 { transform: rotate(315deg) translate(14em) rotate(-315deg); }
+.deg-320 { transform: rotate(320deg) translate(14em) rotate(-320deg); }
+.deg-325 { transform: rotate(325deg) translate(14em) rotate(-325deg); }
+.deg-330 { transform: rotate(330deg) translate(14em) rotate(-330deg); }
+.deg-335 { transform: rotate(335deg) translate(14em) rotate(-335deg); }
+.deg-340 { transform: rotate(340deg) translate(14em) rotate(-340deg); }
+.deg-345 { transform: rotate(345deg) translate(14em) rotate(-345deg); }
+.deg-350 { transform: rotate(350deg) translate(14em) rotate(-350deg); }
+.deg-355 { transform: rotate(355deg) translate(14em) rotate(-355deg); }
+.deg-360 { transform: rotate(360deg) translate(14em) rotate(-360deg); }
 
 .bubble-center {
-	background: blue;
+	background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	border-radius: 50%;
-	margin: -7em !important;
-	width: 14em !important;
-	height: 14em !important;
+	margin: -9em !important;
+	width: 18em !important;
+	height: 18em !important;
+	border: 1px solid black;
 }
 
-.bubble-ring-1 {
+.bubble-ring {
 	background: blue;
 	border-radius: 50%;
 	margin: -4.5em !important;
 	width: 9em !important;
 	height: 9em !important;
-}
-
-.bubble-ring-2 {
-	background: blue;
-	border-radius: 50%;
-	margin: -2em !important;
-	width: 4em !important;
-	height: 4em !important;
 }
 
 .bubble-container {
@@ -191,7 +110,7 @@
 	margin: -2em;
 }
 
-.bubble-fa-icon-ring-1 {
+.bubble-fa-icon {
 	text-align: center;
 	width: 1.25em;
 	margin-top: 10px;
