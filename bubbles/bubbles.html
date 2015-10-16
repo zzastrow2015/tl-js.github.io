@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="bubbleView">
 <head>
 	<meta charset="UTF-8">
 	<title></title>
@@ -16,38 +16,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
 <script src="bubbles.js"></script>
 
-<div id="bubble-container" class='bubble-container'>
-	<div class='center bubble-center'>
-
-	</div>
-
-	<div class='deg-0 bubble-ring'>
-		<i class="fa fa-lightbulb-o bubble-fa-icon"></i>
-	</div>
-	<div class='deg-45 bubble-ring'>
-		<i class="fa fa-map-o bubble-fa-icon"></i>
-	</div>
-	<div class='deg-135 bubble-ring'>
-		<i class="fa fa-music bubble-fa-icon"></i>
-	</div>
-	<div class='deg-180 bubble-ring'>
-		<i class="fa fa-book bubble-fa-icon"></i>
-	</div>
-	<div class='deg-225 bubble-ring'>
-		<i class="fa fa-user bubble-fa-icon"></i>
-	</div>
-	<div class='deg-315 bubble-ring'>
-		<i class="fa fa-user bubble-fa-icon"></i>
-	</div>
-	<div class='deg-90 bubble-ring'>
-		<i class="fa fa-user bubble-fa-icon"></i>
-	</div>
-	<div class='deg-270 bubble-ring'>
-		<i class="fa fa-user bubble-fa-icon"></i>
-	</div>
-</div>
+<div ng-view></div>
 
 </body>
 </html>
