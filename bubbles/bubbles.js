@@ -57,6 +57,10 @@ angular.module('bubbleView.view', ['ngRoute'])
 			{"name":"link",            "icon":"fa-link"}
 		];
 
+		var testData = [
+
+		];
+
 		//Calculate the font-size for the view
 		var container = document.getElementById("bubble-container");
 		var body = document.body,
