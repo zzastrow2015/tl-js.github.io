@@ -361,7 +361,7 @@
 .deg-360 { transform: rotate(360deg) translate(14em) rotate(-360deg); }
 
 .bubble-center {
-	background:blue;
+	background:#71c8ff;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;

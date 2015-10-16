@@ -91,17 +91,32 @@ angular.module('bubbleView.view', ['ngRoute'])
 					var centerDiv = document.getElementById("centerDiv");
 					if (!hasBackground) {
 						centerDiv.setAttribute("style", "background-image:url('http://www.online-image-editor.com//styles/2014/images/example_image.png')");
+						$scope.centerBubbleText = "Murder Cat";
 					}
 					else {
 						centerDiv.setAttribute("style", "background-image:url('http://dreamatico.com/data_images/kitten/kitten-7.jpg')");
+						$scope.centerBubbleText = "Hope Cat";
 					}
 					hasBackground = !hasBackground;
-					if ($scope.bubbleStyle == 1) {
-						$scope.bubbleStyle = 2;
+
+					switch ($scope.bubbleStyle) {
+						case 1:
+							$scope.bubbleStyle = 2;
+							break;
+						case 2:
+							$scope.bubbleStyle = 3;
+							break;
+						case 3:
+							$scope.bubbleStyle = 4;
+							break;
+						case 4:
+							$scope.bubbleStyle = 5;
+							break;
+						case 5:
+							$scope.bubbleStyle = 1;
+							break;
 					}
-					else {
-						$scope.bubbleStyle = 1;
-					}
+
 					//$scope.bubble1 = true;
 					//$scope.bubble2 = true;
 					//$scope.bubble3 = true;
@@ -110,6 +125,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					//$scope.bubble6 = true;
 					//$scope.bubble7 = true;
 					//$scope.bubble8 = true;
+					//$scope.bubble9 = true;
 					break;
 				case 1:
 					$scope.bubble1Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
@@ -151,6 +167,10 @@ angular.module('bubbleView.view', ['ngRoute'])
 					$scope.bubble8Text = fontAwesomeIcons[fontAwesomeIndex].name;
 					//$scope.bubble8 = false;
 					break;
+				case 9:
+					$scope.bubble9Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
+					$scope.bubble9Text = fontAwesomeIcons[fontAwesomeIndex].name;
+					break;
 			}
 			fontAwesomeIndex++;
 			if (fontAwesomeIndex >= fontAwesomeIcons.length) {
@@ -166,6 +186,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 		$scope.bubble6 = true;
 		$scope.bubble7 = true;
 		$scope.bubble8 = true;
+		$scope.bubble9 = true;
+
+		$scope.centerBubbleText = "Test";
 
 		$scope.bubbleStyle = 1;
 
@@ -185,6 +208,8 @@ angular.module('bubbleView.view', ['ngRoute'])
 		$scope.bubble7Text = "car";
 		$scope.bubble8Icon = "fa-briefcase";
 		$scope.bubble8Text = "briefcase";
+		$scope.bubble9Icon = "fa-user";
+		$scope.bubble9Text = "user";
 
 //In order to scale the bubble view you can mess with the font-size style on the bubble-container div. Default is 16px
 //In order to calculate the right font-size: take the current height and divide by 37 (number of em's from top to bottom with all circles shown.
