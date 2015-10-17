@@ -30,13 +30,13 @@ angular.module('bubbleView.view', ['ngRoute'])
 			var degreeSpacing = 0;
 			switch (linkAmount) {
 				case 1:
-					startDegree = 0;
+					startDegree = 270;
 					break;
 				case 2:
 					startDegree = 0;
 					break;
 				case 3:
-					startDegree = 60;
+					startDegree = 30;
 					break;
 				case 4:
 					startDegree = 45;
@@ -258,6 +258,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 							initializeView(testData[gotoId]);
 						}
 					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
+					}
 					break;
 				case 2:
 					currentBubble = $scope.bubbles[1];
@@ -270,6 +273,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 						if (gotoId >= 0) {
 							initializeView(testData[gotoId]);
 						}
+					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
 					}
 					break;
 				case 3:
@@ -284,6 +290,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 							initializeView(testData[gotoId]);
 						}
 					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
+					}
 					break;
 				case 4:
 					currentBubble = $scope.bubbles[3];
@@ -296,6 +305,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 						if (gotoId >= 0) {
 							initializeView(testData[gotoId]);
 						}
+					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
 					}
 					break;
 				case 5:
@@ -310,6 +322,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 							initializeView(testData[gotoId]);
 						}
 					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
+					}
 					break;
 				case 6:
 					currentBubble = $scope.bubbles[5];
@@ -322,6 +337,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 						if (gotoId >= 0) {
 							initializeView(testData[gotoId]);
 						}
+					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
 					}
 					break;
 				case 7:
@@ -336,6 +354,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 							initializeView(testData[gotoId]);
 						}
 					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
+					}
 					break;
 				case 8:
 					currentBubble = $scope.bubbles[7];
@@ -349,6 +370,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 							initializeView(testData[gotoId]);
 						}
 					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
+					}
 					break;
 				case 9:
 					currentBubble = $scope.bubbles[8];
@@ -361,6 +385,9 @@ angular.module('bubbleView.view', ['ngRoute'])
 						if (gotoId >= 0) {
 							initializeView(testData[gotoId]);
 						}
+					}
+					if (currentBubble.linkID == -1) {
+						alert("Not implemented yet.");
 					}
 					break;
 			}
