@@ -10,55 +10,213 @@ angular.module('bubbleView.view', ['ngRoute'])
 	}])
 
 	.controller('ViewCtrl', ['$scope', function ($scope) {
-		var fontAwesomeIcons = [
-			{"name":"fonticons",       "icon":"fa-fonticons"},
-			{"name":"sticky-note",     "icon":"fa-sticky-note"},
-			{"name":"map-signs",       "icon":"fa-map-signs"},
-			{"name":"sticky-note-o",   "icon":"fa-sticky-note-o"},
-			{"name":"commenting",      "icon":"fa-commenting"},
-			{"name":"map",             "icon":"fa-map"},
-			{"name":"commenting-o",    "icon":"fa-commenting-o"},
-			{"name":"map-o",           "icon":"fa-map-o"},
-			{"name":"wikipedia-w",     "icon":"fa-wikipedia-w"},
-			{"name":"camera",          "icon":"fa-camera"},
-			{"name":"envelope",        "icon":"fa-envelope"},
-			{"name":"filter",          "icon":"fa-filter"},
-			{"name":"globe",           "icon":"fa-globe"},
-			{"name":"heartbeat",       "icon":"fa-heartbeat"},
-			{"name":"lightbulb-o",     "icon":"fa-lightbulb-o"},
-			{"name":"microphone",      "icon":"fa-microphone"},
-			{"name":"question",        "icon":"fa-question"},
-			{"name":"remove",          "icon":"fa-remove"},
-			{"name":"sign-out",        "icon":"fa-sign-out"},
-			{"name":"television",      "icon":"fa-television"},
-			{"name":"unlock",          "icon":"fa-unlock"},
-			{"name":"user",            "icon":"fa-user"},
-			{"name":"users",           "icon":"fa-users"},
-			{"name":"automobile",      "icon":"fa-automobile"},
-			{"name":"bell",            "icon":"fa-bell"},
-			{"name":"briefcase",       "icon":"fa-briefcase"},
-			{"name":"graduation-cap",  "icon":"fa-graduation-cap"},
-			{"name":"male",            "icon":"fa-male"},
-			{"name":"question-circle", "icon":"fa-question-circle"},
-			{"name":"road",            "icon":"fa-road"},
-			{"name":"search",          "icon":"fa-search"},
-			{"name":"book",            "icon":"fa-book"},
-			{"name":"calendar",        "icon":"fa-calendar"},
-			{"name":"spinner",         "icon":"fa-spinner"},
-			{"name":"trophy",          "icon":"fa-trophy"},
-			{"name":"asterisk",        "icon":"fa-asterisk"},
-			{"name":"birthday-cake",   "icon":"fa-birthday-cake"},
-			{"name":"lock",            "icon":"fa-lock"},
-			{"name":"photo",           "icon":"fa-photo"},
-			{"name":"file-text",       "icon":"fa-file-text"},
-			{"name":"file-text-o",     "icon":"fa-file-text-o"},
-			{"name":"arrow-left",      "icon":"fa-arrow-left"},
-			{"name":"hand-o-left",     "icon":"fa-hand-o-left"},
-			{"name":"link",            "icon":"fa-link"}
-		];
+		function getItemNumFromID(id) {
+			for (var i = 0; i < testData.length; i++) {
+				if (testData[i].id == id) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		function initializeView(item) {
+			var centerDiv = document.getElementById("centerDiv");
+			if (item.pictureUrl != "") {
+				centerDiv.setAttribute("style", "background-image:url('" + item.pictureUrl + "')");
+			}
+			$scope.centerBubbleText = item.text;
+			var linkAmount = item.links.length;
+			var startDegree;
+			var degreeSpacing = 0;
+			switch (linkAmount) {
+				case 1:
+					startDegree = 0;
+					break;
+				case 2:
+					startDegree = 0;
+					break;
+				case 3:
+					startDegree = 60;
+					break;
+				case 4:
+					startDegree = 45;
+					//startDegree = 0;
+					break;
+				case 5:
+					startDegree = 54; //The extra one will be at angle 270 (top)
+					//startDegree = 18; //The extra one will be at angle 90 (bottom)
+					break;
+				case 6:
+					startDegree = 0; //symmetric about the y
+					//startDegree = 30; //symmetric about the x
+					break;
+				case 7:
+					startDegree = 39; //The extra one will be at the bottom
+					//startDegree = 15; //The extra one will be at the top
+					break;
+				case 8:
+					startDegree = 23; //There are 2 bubbles in each quadrant
+					//startDegree = 0; //There are 4 on the axes and 4 in the quadrants
+					break;
+				case 9:
+					startDegree = 10; //The extra one will be at the bottom
+					//startDegree = 30; //The extra one will be at the top
+					break;
+				default:
+					startDegree = 0;
+					break;
+			}
+
+			if (linkAmount != 0) {
+				degreeSpacing = Math.floor(360/linkAmount);
+			}
+
+			$scope.bubble1 = false;
+			$scope.bubble2 = false;
+			$scope.bubble3 = false;
+			$scope.bubble4 = false;
+			$scope.bubble5 = false;
+			$scope.bubble6 = false;
+			$scope.bubble7 = false;
+			$scope.bubble8 = false;
+			$scope.bubble9 = false;
+
+			if (linkAmount > 0) {
+				$scope.bubble1 = true;
+			}
+			if (linkAmount > 1) {
+				$scope.bubble2 = true;
+			}
+			if (linkAmount > 2) {
+				$scope.bubble3 = true;
+			}
+			if (linkAmount > 3) {
+				$scope.bubble4 = true;
+			}
+			if (linkAmount > 4) {
+				$scope.bubble5 = true;
+			}
+			if (linkAmount > 5) {
+				$scope.bubble6 = true;
+			}
+			if (linkAmount > 6) {
+				$scope.bubble7 = true;
+			}
+			if (linkAmount > 7) {
+				$scope.bubble8 = true;
+			}
+			if (linkAmount > 8) {
+				$scope.bubble9 = true;
+			}
+
+			var newBubbles = [];
+			var degree = startDegree;
+			var bubbleNum = 0;
+			for (var i in item.links) {
+				var link = item.links[i];
+				newBubbles.push({
+					"id":++bubbleNum,
+					"icon":link.icon,
+					"text":link.text,
+					"linkID":link.linkID,
+					"class":"deg-" + degree,
+					"linkUrl":(link.linkUrl ? link.linkUrl : "")
+				});
+				degree += degreeSpacing;
+			}
+
+			$scope.bubbles = newBubbles;
+		}
 
 		var testData = [
-
+			{
+				"id":0,
+				"text":"Murder Cat",
+				"pictureUrl":"http://www.online-image-editor.com//styles/2014/images/example_image.png",
+				"links": [
+					{
+						"linkID":1,
+						"icon":"fa-link",
+						"text":"Associated"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-lightbulb-o",
+						"text":"Invention"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-photo",
+						"text":"Photos",
+						"linkUrl":"http://www.google.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-globe",
+						"text":"Map"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-birthday-cake",
+						"text":"Birthday",
+						"linkUrl":"http://www.reddit.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-calendar",
+						"text":"Schedule"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-envelope",
+						"text":"Letters"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-music",
+						"text":"Scores"
+					}
+				]
+			},
+			{
+				"id":1,
+				"text":"Hope Cat",
+				"pictureUrl":"http://dreamatico.com/data_images/kitten/kitten-7.jpg",
+				"links":[
+					{
+						"linkID":0,
+						"icon":"fa-link",
+						"text":"Associated"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-lightbulb-o",
+						"text":"Invention"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-photo",
+						"text":"Photos",
+						"linkUrl":"http://www.google.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-globe",
+						"text":"Map"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-birthday-cake",
+						"text":"Birthday",
+						"linkUrl":"http://www.reddit.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-calendar",
+						"text":"Schedule"
+					}
+				]
+			}
 		];
 
 		//Calculate the font-size for the view
@@ -70,7 +228,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 			html.clientHeight, html.scrollHeight, html.offsetHeight );
 
 		var neededFontSize = Math.floor(height/37);
-		container.setAttribute("style", "font-size:" + neededFontSize + "px;")
+		container.setAttribute("style", "font-size:" + neededFontSize + "px;");
 
 		window.onresize = function () {
 			height = Math.max( body.scrollHeight, body.offsetHeight,
@@ -81,100 +239,130 @@ angular.module('bubbleView.view', ['ngRoute'])
 			container.setAttribute("style", "font-size:" + neededFontSize + "px;");
 		};
 
-		var hasBackground = false;
-
-		var fontAwesomeIndex = 0;
+		var currentBubble;
+		var gotoId;
 
 		$scope.poke = function (num) {
 			switch (num) {
 				case 0:
-					var centerDiv = document.getElementById("centerDiv");
-					if (!hasBackground) {
-						centerDiv.setAttribute("style", "background-image:url('http://www.online-image-editor.com//styles/2014/images/example_image.png')");
-						$scope.centerBubbleText = "Murder Cat";
-					}
-					else {
-						centerDiv.setAttribute("style", "background-image:url('http://dreamatico.com/data_images/kitten/kitten-7.jpg')");
-						$scope.centerBubbleText = "Hope Cat";
-					}
-					hasBackground = !hasBackground;
-
-					switch ($scope.bubbleStyle) {
-						case 1:
-							$scope.bubbleStyle = 2;
-							break;
-						case 2:
-							$scope.bubbleStyle = 3;
-							break;
-						case 3:
-							$scope.bubbleStyle = 4;
-							break;
-						case 4:
-							$scope.bubbleStyle = 5;
-							break;
-						case 5:
-							$scope.bubbleStyle = 1;
-							break;
-					}
-
-					//$scope.bubble1 = true;
-					//$scope.bubble2 = true;
-					//$scope.bubble3 = true;
-					//$scope.bubble4 = true;
-					//$scope.bubble5 = true;
-					//$scope.bubble6 = true;
-					//$scope.bubble7 = true;
-					//$scope.bubble8 = true;
-					//$scope.bubble9 = true;
 					break;
 				case 1:
-					$scope.bubble1Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble1Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble1 = false;
+					currentBubble = $scope.bubbles[0];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 2:
-					$scope.bubble2Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble2Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble2 = false;
+					currentBubble = $scope.bubbles[1];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 3:
-					$scope.bubble3Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble3Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble3 = false;
+					currentBubble = $scope.bubbles[2];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 4:
-					$scope.bubble4Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble4Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble4 = false;
+					currentBubble = $scope.bubbles[3];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 5:
-					$scope.bubble5Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble5Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble5 = false;
+					currentBubble = $scope.bubbles[4];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 6:
-					$scope.bubble6Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble6Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble6 = false;
+					currentBubble = $scope.bubbles[5];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 7:
-					$scope.bubble7Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble7Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble7 = false;
+					currentBubble = $scope.bubbles[6];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 8:
-					$scope.bubble8Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble8Text = fontAwesomeIcons[fontAwesomeIndex].name;
-					//$scope.bubble8 = false;
+					currentBubble = $scope.bubbles[7];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
 				case 9:
-					$scope.bubble9Icon = fontAwesomeIcons[fontAwesomeIndex].icon;
-					$scope.bubble9Text = fontAwesomeIcons[fontAwesomeIndex].name;
+					currentBubble = $scope.bubbles[8];
+					if (currentBubble.linkID == -2) {
+						window.open(currentBubble.linkUrl, '_blank');
+					}
+
+					if (currentBubble.linkID >= 0) {
+						gotoId = getItemNumFromID(currentBubble.linkID);
+						if (gotoId >= 0) {
+							initializeView(testData[gotoId]);
+						}
+					}
 					break;
-			}
-			fontAwesomeIndex++;
-			if (fontAwesomeIndex >= fontAwesomeIcons.length) {
-				fontAwesomeIndex = 0;
 			}
 		};
 
@@ -188,29 +376,62 @@ angular.module('bubbleView.view', ['ngRoute'])
 		$scope.bubble8 = true;
 		$scope.bubble9 = true;
 
-		$scope.centerBubbleText = "Test";
+		$scope.bubbles = [
+			{
+				"id":1,
+				"icon":"fa-lightbulb-o",
+				"text":"lightbulb",
+				"class":"deg-10"
+			},
+			{
+				"id":2,
+				"icon":"fa-map-o",
+				"text":"map",
+				"class":"deg-50"
+			},
+			{
+				"id":3,
+				"icon":"fa-music",
+				"text":"music",
+				"class":"deg-90"
+			},
+			{
+				"id":4,
+				"icon":"fa-book",
+				"text":"book",
+				"class":"deg-130"
+			},
+			{
+				"id":5,
+				"icon":"fa-globe",
+				"text":"globe",
+				"class":"deg-170"
+			},
+			{
+				"id":6,
+				"icon":"fa-bell",
+				"text":"bell",
+				"class":"deg-210"
+			},
+			{
+				"id":7,
+				"icon":"fa-map-pin",
+				"text":"map pin",
+				"class":"deg-250"
+			},
+			{
+				"id":8,
+				"icon":"fa-briefcase",
+				"text":"briefcase",
+				"class":"deg-290"
+			},
+			{
+				"id":9,
+				"icon":"fa-user",
+				"text":"person",
+				"class":"deg-330"
+			}
+		];
 
-		$scope.bubbleStyle = 1;
-
-		$scope.bubble1Icon = "fa-lightbulb-o";
-		$scope.bubble1Text = "lightbulb-o";
-		$scope.bubble2Icon = "fa-map-o";
-		$scope.bubble2Text = "map-o";
-		$scope.bubble3Icon = "fa-music";
-		$scope.bubble3Text = "music";
-		$scope.bubble4Icon = "fa-book";
-		$scope.bubble4Text = "book";
-		$scope.bubble5Icon = "fa-bomb";
-		$scope.bubble5Text = "bomb";
-		$scope.bubble6Icon = "fa-bell";
-		$scope.bubble6Text = "bell";
-		$scope.bubble7Icon = "fa-car";
-		$scope.bubble7Text = "car";
-		$scope.bubble8Icon = "fa-briefcase";
-		$scope.bubble8Text = "briefcase";
-		$scope.bubble9Icon = "fa-user";
-		$scope.bubble9Text = "user";
-
-//In order to scale the bubble view you can mess with the font-size style on the bubble-container div. Default is 16px
-//In order to calculate the right font-size: take the current height and divide by 37 (number of em's from top to bottom with all circles shown.
+		initializeView(testData[0]);
 	}]);
