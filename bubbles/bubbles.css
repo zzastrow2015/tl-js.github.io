@@ -370,6 +370,7 @@
 	width: 18em !important;
 	height: 18em !important;
 	border: 1px solid black;
+	transition: background-image .2s ease-in-out;
 }
 
 .bubble-center span {
