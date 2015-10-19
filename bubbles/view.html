@@ -4,9 +4,21 @@
 	</div>
 
 	<section ng-repeat="bubble in bubbles">
-		<div class="bubble-ring" ng-class="bubble.class" ng-click="poke(bubble.id)">
+		<div class="bubble-ring" ng-class="bubble.class" ng-click="bubbleClick(bubble.id)">
 			<i class="fa bubble-fa-icon" ng-class="bubble.icon"></i>
 			<span>{{bubble.text}}</span>
 		</div>
 	</section>
+</div>
+
+<div id="control-container" class="control-container">
+	<div ng-if="history.length" class="back-button" ng-click="goBack()">
+		Go Back <i class="fa fa-hand-o-left"></i>
+	</div>
+
+	<div ng-show="history.length" id="history-list" class="history-list">
+		<div class="list-item" ng-click="goBackTo(item.num)" ng-repeat="item in history">
+			{{item.name}}
+		</div>
+	</div>
 </div>

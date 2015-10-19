@@ -446,3 +446,44 @@
 .bubble-container div:hover {
 	border: 2px solid black
 }
+
+.control-container {
+	position: fixed;
+	border: 1px solid black;
+	top: .5em;
+	left: .5em;
+	width: 250px;
+}
+
+.back-button {
+	width: 248px;
+	height: 50px;
+	font-size:2.5em;
+	text-align:center;
+	background-color: lightgray;
+	border-radius:10%;
+	border: 1px solid black;
+}
+
+.back-button:hover {
+	border: 2px solid black;
+	background-color: darkgray;
+}
+
+.history-list {
+	width: 250px;
+	background-color: whitesmoke;
+}
+
+.list-item {
+	text-align: center;
+	height: 1em;
+	width: 248px;
+	background-color: white;
+	margin-bottom: .2em;
+	border: 1px solid black;
+}
+
+.list-item:hover {
+	border: 2px solid black;
+}

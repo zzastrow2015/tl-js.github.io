@@ -19,7 +19,13 @@ angular.module('bubbleView.view', ['ngRoute'])
 			return -1;
 		}
 
+		var currentItem;
+		$scope.history = [];
+		var currentBubble;
+		var gotoId;
+
 		function initializeView(item) {
+			currentItem = item;
 			var centerDiv = document.getElementById("centerDiv");
 			if (item.pictureUrl != "") {
 				centerDiv.setAttribute("style", "background-image:url('" + item.pictureUrl + "')");
@@ -221,28 +227,45 @@ angular.module('bubbleView.view', ['ngRoute'])
 
 		//Calculate the font-size for the view
 		var container = document.getElementById("bubble-container");
-		var body = document.body,
-			html = document.documentElement;
+		var control_container = document.getElementById("control-container");
+		var history_list = document.getElementById("history-list");
+		var html = document.documentElement;
 
-		var height = Math.max( body.scrollHeight, body.offsetHeight,
-			html.clientHeight, html.scrollHeight, html.offsetHeight );
+		var height = html.clientHeight;
 
 		var neededFontSize = Math.floor(height/37);
 		container.setAttribute("style", "font-size:" + neededFontSize + "px;");
 
+		control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
+		history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 52) + "px");
+
 		window.onresize = function () {
-			height = Math.max( body.scrollHeight, body.offsetHeight,
-				html.clientHeight, html.scrollHeight, html.offsetHeight );
+			height = html.clientHeight;
 
 			var neededFontSize = Math.floor(height/37);
 
+			control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
+
 			container.setAttribute("style", "font-size:" + neededFontSize + "px;");
+			history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 52) + "px");
 		};
 
-		var currentBubble;
-		var gotoId;
+		$scope.goBackTo = function(historyId){
+			alert("Would go back to " + historyId);
+		};
 
-		$scope.poke = function (num) {
+		$scope.goBack = function () {
+			alert("Would go back.");
+		};
+
+		$scope.bubbleClick = function (num) {
+			if (num != 0) {
+				$scope.history.push({
+					"num": $scope.history.length,
+					"id": currentItem.id,
+					"name": currentItem.text
+				});
+			}
 			switch (num) {
 				case 0:
 					break;
@@ -392,73 +415,6 @@ angular.module('bubbleView.view', ['ngRoute'])
 					break;
 			}
 		};
-
-		$scope.bubble1 = true;
-		$scope.bubble2 = true;
-		$scope.bubble3 = true;
-		$scope.bubble4 = true;
-		$scope.bubble5 = true;
-		$scope.bubble6 = true;
-		$scope.bubble7 = true;
-		$scope.bubble8 = true;
-		$scope.bubble9 = true;
-
-		$scope.bubbles = [
-			{
-				"id":1,
-				"icon":"fa-lightbulb-o",
-				"text":"lightbulb",
-				"class":"deg-10"
-			},
-			{
-				"id":2,
-				"icon":"fa-map-o",
-				"text":"map",
-				"class":"deg-50"
-			},
-			{
-				"id":3,
-				"icon":"fa-music",
-				"text":"music",
-				"class":"deg-90"
-			},
-			{
-				"id":4,
-				"icon":"fa-book",
-				"text":"book",
-				"class":"deg-130"
-			},
-			{
-				"id":5,
-				"icon":"fa-globe",
-				"text":"globe",
-				"class":"deg-170"
-			},
-			{
-				"id":6,
-				"icon":"fa-bell",
-				"text":"bell",
-				"class":"deg-210"
-			},
-			{
-				"id":7,
-				"icon":"fa-map-pin",
-				"text":"map pin",
-				"class":"deg-250"
-			},
-			{
-				"id":8,
-				"icon":"fa-briefcase",
-				"text":"briefcase",
-				"class":"deg-290"
-			},
-			{
-				"id":9,
-				"icon":"fa-user",
-				"text":"person",
-				"class":"deg-330"
-			}
-		];
 
 		initializeView(testData[0]);
 	}]);
