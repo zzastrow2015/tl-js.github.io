@@ -12,15 +12,13 @@
 </div>
 
 <div id="control-container" class="control-container">
+	<h1 ng-if="history.length" class="history-title">History</h1>
 
+	<div ng-if="history.length" class="back-button" ng-click="goBack()">
+		<i class="fa fa-hand-o-left"></i> Go Back
+	</div>
 
 	<div ng-show="history.length" id="history-list" class="history-list">
-		<h1 class="history-title">History</h1>
-
-		<div class="back-button" ng-click="goBack()">
-			<i class="fa fa-hand-o-left"></i> Go Back
-		</div>
-
 		<div class="list-item" ng-click="goBackTo(item.num)" ng-repeat="item in history | reverse">
 			{{item.name}}
 		</div>

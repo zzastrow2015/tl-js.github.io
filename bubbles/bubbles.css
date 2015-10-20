@@ -477,11 +477,12 @@
 
 .list-item {
 	text-align: center;
-	height: 1em;
+	height: 1.25em;
 	width: 246px;
-	background-color: white;
+	background-color: beige;
 	margin-bottom: .2em;
 	border: 1px solid black;
+	font-family:fantasy;
 }
 
 .list-item:hover {
@@ -491,4 +492,5 @@
 .history-title {
 	margin:0;
 	text-align:center;
+	font-family:cursive;
 }

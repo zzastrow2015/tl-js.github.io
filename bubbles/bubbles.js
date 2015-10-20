@@ -310,7 +310,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 		container.setAttribute("style", "font-size:" + neededFontSize + "px;");
 
 		control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
-		history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
+		history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 100) + "px");
 
 		window.onresize = function () {
 			height = html.clientHeight;
@@ -320,7 +320,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 			control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
 
 			container.setAttribute("style", "font-size:" + neededFontSize + "px;");
-			history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
+			history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 100) + "px");
 		};
 
 		$scope.goBackTo = function(historyId){
