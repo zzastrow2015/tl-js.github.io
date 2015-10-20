@@ -9,6 +9,12 @@ angular.module('bubbleView.view', ['ngRoute'])
 		});
 	}])
 
+	.filter('reverse', function() {
+		return function(items) {
+			return items.slice().reverse();
+		};
+	})
+
 	.controller('ViewCtrl', ['$scope', function ($scope) {
 		function getItemNumFromID(id) {
 			for (var i = 0; i < testData.length; i++) {
@@ -24,7 +30,15 @@ angular.module('bubbleView.view', ['ngRoute'])
 		var currentBubble;
 		var gotoId;
 
-		function initializeView(item) {
+		function initializeView(item, updateHistory) {
+			if (updateHistory) {
+				var itemToAdd = {
+					"num": $scope.history.length,
+					"id": currentItem.id,
+					"name": currentItem.text
+				};
+				$scope.history.push(itemToAdd);
+			}
 			currentItem = item;
 			var centerDiv = document.getElementById("centerDiv");
 			if (item.pictureUrl != "") {
@@ -181,6 +195,11 @@ angular.module('bubbleView.view', ['ngRoute'])
 						"linkID":-1,
 						"icon":"fa-music",
 						"text":"Scores"
+					},
+					{
+						"linkID":2,
+						"icon":"fa-link",
+						"text":"Associated"
 					}
 				]
 			},
@@ -220,6 +239,60 @@ angular.module('bubbleView.view', ['ngRoute'])
 						"linkID":-1,
 						"icon":"fa-calendar",
 						"text":"Schedule"
+					},
+					{
+						"linkID":2,
+						"icon":"fa-link",
+						"text":"Associated"
+					}
+				]
+			},
+			{
+				"id":2,
+				"text":"Adventure Dog",
+				"pictureUrl":"http://vtsports.com/wp-content/uploads/2014/04/foggy-solo-with-griff.jpg",
+				"links": [
+					{
+						"linkID":1,
+						"icon":"fa-link",
+						"text":"Associated"
+					},
+					{
+						"linkID":0,
+						"icon":"fa-link",
+						"text":"Associated"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-photo",
+						"text":"Photos",
+						"linkUrl":"http://www.google.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-globe",
+						"text":"Map"
+					},
+					{
+						"linkID":-2,
+						"icon":"fa-birthday-cake",
+						"text":"Birthday",
+						"linkUrl":"http://www.reddit.com"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-calendar",
+						"text":"Schedule"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-envelope",
+						"text":"Letters"
+					},
+					{
+						"linkID":-1,
+						"icon":"fa-music",
+						"text":"Scores"
 					}
 				]
 			}
@@ -237,7 +310,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 		container.setAttribute("style", "font-size:" + neededFontSize + "px;");
 
 		control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
-		history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 52) + "px");
+		history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
 
 		window.onresize = function () {
 			height = html.clientHeight;
@@ -247,25 +320,22 @@ angular.module('bubbleView.view', ['ngRoute'])
 			control_container.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
 
 			container.setAttribute("style", "font-size:" + neededFontSize + "px;");
-			history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize) - 52) + "px");
+			history_list.setAttribute("style", "height:" + (height - (2 * neededFontSize)) + "px");
 		};
 
 		$scope.goBackTo = function(historyId){
-			alert("Would go back to " + historyId);
+			var itemToGoTo = $scope.history[historyId];
+			$scope.history = $scope.history.slice(0, historyId);
+			initializeView(testData[itemToGoTo.id]);
 		};
 
 		$scope.goBack = function () {
-			alert("Would go back.");
+			var itemToGoTo = $scope.history[$scope.history.length - 1];
+			$scope.history.pop();
+			initializeView(testData[itemToGoTo.id]);
 		};
 
 		$scope.bubbleClick = function (num) {
-			if (num != 0) {
-				$scope.history.push({
-					"num": $scope.history.length,
-					"id": currentItem.id,
-					"name": currentItem.text
-				});
-			}
 			switch (num) {
 				case 0:
 					break;
@@ -278,7 +348,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -294,7 +364,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -310,7 +380,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -326,7 +396,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -342,7 +412,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -358,7 +428,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -374,7 +444,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -390,7 +460,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {
@@ -406,7 +476,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 					if (currentBubble.linkID >= 0) {
 						gotoId = getItemNumFromID(currentBubble.linkID);
 						if (gotoId >= 0) {
-							initializeView(testData[gotoId]);
+							initializeView(testData[gotoId], true);
 						}
 					}
 					if (currentBubble.linkID == -1) {

@@ -449,7 +449,6 @@
 
 .control-container {
 	position: fixed;
-	border: 1px solid black;
 	top: .5em;
 	left: .5em;
 	width: 250px;
@@ -461,7 +460,7 @@
 	font-size:2.5em;
 	text-align:center;
 	background-color: lightgray;
-	border-radius:10%;
+	border-radius:7.5%;
 	border: 1px solid black;
 }
 
@@ -473,12 +472,13 @@
 .history-list {
 	width: 250px;
 	background-color: whitesmoke;
+	overflow: auto;
 }
 
 .list-item {
 	text-align: center;
 	height: 1em;
-	width: 248px;
+	width: 246px;
 	background-color: white;
 	margin-bottom: .2em;
 	border: 1px solid black;
@@ -486,4 +486,9 @@
 
 .list-item:hover {
 	border: 2px solid black;
+}
+
+.history-title {
+	margin:0;
+	text-align:center;
 }
