@@ -13,7 +13,7 @@ angular.module('databaseEntry.view', ['ngRoute'])
 		var classifications = [
 			{
 				"title": "Invention",
-				"icon": "fa-lightbulb"
+				"icon": "fa-lightbulb-o"
 			}
 		];
 

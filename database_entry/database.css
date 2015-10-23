@@ -1,3 +1,32 @@
 h1 {
 	text-align: center;
 }
+
+.list-container {
+	border: 1px solid black;
+}
+
+.list-title {
+	text-align: center;
+	margin: 0;
+	color: lightgray;
+}
+
+.list-item {
+	text-align: center;
+	height: 1.25em;
+	width: 24%;
+	margin: .2em;
+	float: left;
+	background-color: beige;
+	border: 1px solid black;
+	font-family:fantasy;
+}
+
+.list-item:hover {
+	border: 2px solid black;
+}
+
+.form {
+	padding-top: 2em;
+}
