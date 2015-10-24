@@ -30,3 +30,27 @@ h1 {
 .form {
 	padding-top: 2em;
 }
+
+.fa-list-container {
+	overflow: auto;
+	max-height: 200px;
+	border: 1px solid gray;
+	margin-bottom: 10px;
+}
+
+.fa-list {
+	border: 1px solid black;
+	margin-top: 5px !important;
+}
+
+.fa-list:hover {
+	border: 2px solid black;
+}
+
+.fa-list:before {
+	content:"" !important;
+}
+
+.fa-list-item {
+
+}
