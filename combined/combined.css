@@ -1,0 +1,41 @@
+.test {
+	width: 100%;
+}
+
+.search-box {
+	width: 250px;
+	float: left;
+	border: 1px solid black;
+}
+
+.nav-bar {
+	height: 35px;
+	margin-left: 250px;
+}
+
+.nav-bar-btn {
+	width: 49% !important;
+	float: left;
+	margin-top:0 !important;
+	margin-left: 10px;
+}
+
+.main-section {
+	margin-left: 250px;
+	cursor: crosshair;
+}
+
+.list-container {
+	overflow: auto;
+}
+
+.list-item:hover {
+	font-weight:bold;
+	color: blue;
+}
+
+.year-bar {
+	height: 28px;
+	border: 1px solid black;
+}
+

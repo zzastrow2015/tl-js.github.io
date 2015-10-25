@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="combinedApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Combined View</title>
+	<style>
+		body, html{
+			height:100%;
+			width:100%;
+			margin:0;
+			padding:0;
+			display:table;
+			font-size: 20px;
+		}
+	</style>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="combined.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="combined.js"></script>
+
+<div ng-view></div>
+
+</body>
+</html>
