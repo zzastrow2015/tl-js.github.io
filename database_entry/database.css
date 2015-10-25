@@ -31,6 +31,11 @@ h1 {
 	padding-top: 2em;
 }
 
+.file-input{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
 .fa-list-container {
 	overflow: auto;
 	max-height: 200px;
