@@ -1,11 +1,8 @@
-.test {
-	width: 100%;
-}
-
 .search-box {
 	width: 250px;
 	float: left;
 	border: 1px solid black;
+	z-index: 2;
 }
 
 .nav-bar {
@@ -22,11 +19,12 @@
 
 .main-section {
 	margin-left: 250px;
-	cursor: crosshair;
+	background: red;
 }
 
 .list-container {
 	overflow: auto;
+	z-index: 2;
 }
 
 .list-item:hover {
@@ -35,7 +33,33 @@
 }
 
 .year-bar {
-	height: 28px;
+	height: 24px;
 	border: 1px solid black;
 }
 
+.focus-point {
+	cursor: crosshair;
+}
+
+.left-bound-year {
+	float: left;
+	z-index: -1;
+}
+
+.right-bound-year {
+	float: right;
+	z-index: -1;
+}
+
+.floating-year {
+	z-index: 1;
+	position: absolute;
+	top: 35px;
+	left: 250px;
+	background: red;
+}
+
+.drawing-canvas {
+	height:100%;
+	width:100%;
+}

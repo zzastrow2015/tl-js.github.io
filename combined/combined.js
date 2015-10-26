@@ -13,12 +13,14 @@ angular.module('combinedApp.view', ['ngRoute'])
 		var container = document.getElementById("container");
 		var search_box = document.getElementById("search-box");
 		var main_section = document.getElementById("main-section");
+		var focus_point = document.getElementById("focus-point");
 		var list_container = document.getElementById("list-container");
 		var html = document.documentElement;
 		var height = html.clientHeight;
 
 		list_container.setAttribute("style", "max-height:" + (height - 50) + "px");
 		main_section.setAttribute("style", "height:" + (height - 35) + "px");
+		focus_point.setAttribute("style", "height:" + (height - 35 - 21 - 28) + "px");
 		search_box.setAttribute("style", "height:" + height + "px");
 		container.setAttribute("style", "height:" + height + "px");
 
@@ -27,6 +29,7 @@ angular.module('combinedApp.view', ['ngRoute'])
 
 			list_container.setAttribute("style", "max-height:" + (height - 50) + "px");
 			main_section.setAttribute("style", "height:" + (height - 35) + "px");
+			focus_point.setAttribute("style", "height:" + (height - 35 - 21 - 28) + "px");
 			search_box.setAttribute("style", "height:" + height + "px");
 			container.setAttribute("style", "height:" + height + "px");
 		};
@@ -98,4 +101,53 @@ angular.module('combinedApp.view', ['ngRoute'])
 			'fa-warning',
 			'fa-youtube-play'
 		];
+
+		$scope.startYear = 1800;
+		$scope.endYear = 2000;
+
+		$scope.lowerBound = $scope.startYear;
+		$scope.upperBound = $scope.endYear;
+
+		$( "#slider-range" ).slider({
+			range: true,
+			min: $scope.startYear,
+			max: $scope.endYear,
+			values: [ $scope.lowerBound, $scope.upperBound ],
+			change: function( event, ui ) {
+				updateYears(ui.values);
+				$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			}
+		});
+
+		var float_year = document.getElementById("floating-year");
+
+		function updateFloatYearValue () {
+			var leftString = float_year.style.left;
+			var leftValue = (parseInt(leftString.replace(/\D/g,'')) - 250);
+			var totalYearWidth = (html.clientWidth - 35) - 250;
+			$scope.currentYear = Math.floor((leftValue/totalYearWidth) * ($scope.upperBound - $scope.lowerBound) + $scope.lowerBound);
+			$scope.$apply();
+		}
+
+		function updateYears (values) {
+			$scope.lowerBound = values[0];
+			$scope.upperBound = values[1];
+			$scope.$apply();
+		}
+
+		$("#focus-point").mousemove(function(event){
+			var leftValue = (event.pageX - 18);
+			if (leftValue < 250) {
+				leftValue = 250;
+			}
+			if (leftValue > (html.clientWidth - 40)) {
+				leftValue = (html.clientWidth - 35);
+			}
+			float_year.setAttribute("style", "left:" + leftValue + "px");
+			updateFloatYearValue();
+		});
+
+		$scope.select = function (event) {
+
+		}
 	}]);
