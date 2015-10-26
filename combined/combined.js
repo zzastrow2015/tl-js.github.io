@@ -162,24 +162,29 @@ angular.module('combinedApp.view', ['ngRoute'])
 			if (time < $scope.lowerBound || time > $scope.upperBound) {
 				return;
 			}
+
 			var focus = $('#focus-point');
 			var divHeight = focus.height();
 			var divWidth = focus.width() - 10; //Subtract 10 for a 5 pixel gap on the right and the left
 
-			var totalTimeGap = $scope.upperBound - $scope.lowerBound;
-			var yearsPerCircleWidth = Math.ceil((totalTimeGap/divWidth)*(sizeBaseCircle+2));
+			var lowerBoundHorizontal = 250 + 22;
+			var upperBoundHorizontal = 250 + divWidth - 5;
+
+			var lowerBoundVertical = 60 + divHeight - 30;
+			var upperBoundVertical = 65;
+
+			var availableCircleSpaceHorizontal = upperBoundHorizontal - lowerBoundHorizontal;
+			var numberCirclesAvailableHorizontal = Math.floor(availableCircleSpaceHorizontal/10);
+
+			var availableCircleSpaceVertical = upperBoundVertical - lowerBoundVertical;
+			var numberCirclesAvailableVertical = Math.floor(availableCircleSpaceVertical/10);
+
+			var yearsPerCircle = Math.floor(($scope.upperBound - $scope.lowerBound)/numberCirclesAvailableHorizontal);
 
 			var yearsFromLower = time - $scope.lowerBound;
+			var x_pos = (10 * yearsFromLower) + lowerBoundHorizontal;
 
-			while (yearsFromLower % yearsPerCircleWidth != 0) {
-				yearsFromLower++;
-			}
-
-			var distForYear = Math.floor(((yearsFromLower/totalTimeGap) * divWidth) + 255);
-
-			drawCircle(distForYear, 300, sizeBaseCircle, {});
-
-			var x_pos = yearsFromLower/yearsPerCircleWidth * ((sizeBaseCircle + 2) - (sizeBaseCircle/2));
+			drawCircle(x_pos, (divHeight/2)+33, sizeBaseCircle, {});
 		}
 
 		function drawCircle (x, y, size, item) {
@@ -204,7 +209,8 @@ angular.module('combinedApp.view', ['ngRoute'])
 
 		loadTimelineOrMap(isTimeline);
 
-		for (var i = 1800; i <= 1900; i++) {
-			circleAtTime(i);
-		}
+		circleAtTime(1900);
+		//for (var i = 1800; i <= 1900; i++) {
+		//	circleAtTime(i);
+		//}
 	}]);
