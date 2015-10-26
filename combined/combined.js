@@ -20,7 +20,7 @@ angular.module('combinedApp.view', ['ngRoute'])
 
 		list_container.setAttribute("style", "max-height:" + (height - 50) + "px");
 		main_section.setAttribute("style", "height:" + (height - 35) + "px");
-		focus_point.setAttribute("style", "height:" + (height - 35 - 21 - 28) + "px");
+		focus_point.setAttribute("style", "height:" + (height - 35 - 20 - 25) + "px");
 		search_box.setAttribute("style", "height:" + height + "px");
 		container.setAttribute("style", "height:" + height + "px");
 
@@ -29,7 +29,7 @@ angular.module('combinedApp.view', ['ngRoute'])
 
 			list_container.setAttribute("style", "max-height:" + (height - 50) + "px");
 			main_section.setAttribute("style", "height:" + (height - 35) + "px");
-			focus_point.setAttribute("style", "height:" + (height - 35 - 21 - 28) + "px");
+			focus_point.setAttribute("style", "height:" + (height - 35 - 20 - 25) + "px");
 			search_box.setAttribute("style", "height:" + height + "px");
 			container.setAttribute("style", "height:" + height + "px");
 		};
@@ -147,7 +147,64 @@ angular.module('combinedApp.view', ['ngRoute'])
 			updateFloatYearValue();
 		});
 
+		$scope.toggle = function () {
+			isTimeline = !isTimeline;
+			$('.div-circle').remove();
+		};
+
 		$scope.select = function (event) {
 
+		};
+
+		var sizeBaseCircle = 8;
+
+		function circleAtTime(time) {
+			if (time < $scope.lowerBound || time > $scope.upperBound) {
+				return;
+			}
+			var focus = $('#focus-point');
+			var divHeight = focus.height();
+			var divWidth = focus.width() - 10; //Subtract 10 for a 5 pixel gap on the right and the left
+
+			var totalTimeGap = $scope.upperBound - $scope.lowerBound;
+			var yearsPerCircleWidth = Math.ceil((totalTimeGap/divWidth)*(sizeBaseCircle+2));
+
+			var yearsFromLower = time - $scope.lowerBound;
+
+			while (yearsFromLower % yearsPerCircleWidth != 0) {
+				yearsFromLower++;
+			}
+
+			var distForYear = Math.floor(((yearsFromLower/totalTimeGap) * divWidth) + 255);
+
+			drawCircle(distForYear, 300, sizeBaseCircle, {});
+
+			var x_pos = yearsFromLower/yearsPerCircleWidth * ((sizeBaseCircle + 2) - (sizeBaseCircle/2));
+		}
+
+		function drawCircle (x, y, size, item) {
+			var circle = document.createElement("div");
+			circle.className = "div-circle";
+			var topVal = y - (size/2);
+			var leftVal = x - (size/2);
+			circle.setAttribute("style","top:" + topVal + "px;left:" + leftVal + "px;width:" + size + "px;height:" + size + "px;");
+			focus_point.appendChild(circle);
+		}
+
+		function loadTimelineOrMap (isTimeline) {
+			if (isTimeline) {
+
+			}
+			else { //Load in the map view
+
+			}
+		}
+
+		var isTimeline = true;
+
+		loadTimelineOrMap(isTimeline);
+
+		for (var i = 1800; i <= 1900; i++) {
+			circleAtTime(i);
 		}
 	}]);

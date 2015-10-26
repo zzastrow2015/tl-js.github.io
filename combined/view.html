@@ -14,8 +14,8 @@
 		</div>
 	</div>
 	<div id="nav-bar" class="nav-bar">
-		<button class="btn btn-block nav-bar-btn">Map</button>
-		<button class="btn btn-block nav-bar-btn">Timeline</button>
+		<button ng-click="toggle()" class="btn btn-block nav-bar-btn">Map</button>
+		<button ng-click="toggle()" class="btn btn-block nav-bar-btn">Timeline</button>
 	</div>
 	<div id="main-section" class="main-section">
 		<div class="year-bar">
@@ -24,8 +24,7 @@
 			<span id="floating-year" class="floating-year">{{currentYear}}</span>
 		</div>
 		<div id="focus-point" class="focus-point">
-			<canvas class="drawing-canvas">
-			</canvas>
+
 		</div>
 		<div id="slider-range"></div>
 	</div>
