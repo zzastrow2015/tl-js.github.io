@@ -45,15 +45,15 @@
 This is essentially just drawing a line in the middle of the timeline
 To hide this when we draw the map adjust the z-index to be -1 or remove the border
 */
-.focus-point:after {
-	content:"";
-	position:absolute;
-	z-index: 1;
-	top:50%;
-	right:0;
-	left:250px;
-	border-top:3px solid gray;
-}
+/*.focus-point:after {*/
+	/*content:"";*/
+	/*position:absolute;*/
+	/*z-index: 1;*/
+	/*top:50%;*/
+	/*right:0;*/
+	/*left:250px;*/
+	/*border-top:3px solid gray;*/
+/*}*/
 
 .left-bound-year {
 	float: left;

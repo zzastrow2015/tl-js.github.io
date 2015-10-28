@@ -179,10 +179,12 @@ angular.module('combinedApp.view', ['ngRoute'])
 			var availableCircleSpaceVertical = upperBoundVertical - lowerBoundVertical;
 			var numberCirclesAvailableVertical = Math.floor(availableCircleSpaceVertical/10);
 
-			var yearsPerCircle = Math.floor(($scope.upperBound - $scope.lowerBound)/numberCirclesAvailableHorizontal);
-
+			var yearsPerCircle = (($scope.upperBound - $scope.lowerBound)/numberCirclesAvailableHorizontal);
 			var yearsFromLower = time - $scope.lowerBound;
-			var x_pos = (10 * yearsFromLower) + lowerBoundHorizontal;
+
+			var numCirclesAlongX = Math.ceil(yearsFromLower/yearsPerCircle);
+
+			var x_pos = (10 * numCirclesAlongX) + lowerBoundHorizontal;
 
 			drawCircle(x_pos, (divHeight/2)+33, sizeBaseCircle, {});
 		}
@@ -209,8 +211,7 @@ angular.module('combinedApp.view', ['ngRoute'])
 
 		loadTimelineOrMap(isTimeline);
 
-		circleAtTime(1900);
-		//for (var i = 1800; i <= 1900; i++) {
-		//	circleAtTime(i);
-		//}
+		for (var i = 1800; i <= 1900; i++) {
+			circleAtTime(i);
+		}
 	}]);
