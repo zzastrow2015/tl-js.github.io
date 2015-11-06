@@ -15,9 +15,7 @@ h1 {
 .list-item {
 	text-align: center;
 	height: 1.25em;
-	width: 24%;
 	margin: .2em;
-	float: left;
 	background-color: beige;
 	border: 1px solid black;
 	font-family:fantasy;

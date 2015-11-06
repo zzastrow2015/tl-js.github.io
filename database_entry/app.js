@@ -4,7 +4,7 @@
 angular.module('databaseEntry', [
 	'ngRoute',
 	'databaseEntry.view',
-	'databaseEntry.add',
+	'databaseEntry.list',
 	'databaseEntry.service'
 ])
 	.config(['$routeProvider', function ($routeProvider) {

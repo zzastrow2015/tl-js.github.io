@@ -8,13 +8,14 @@ angular.module('databaseEntry.service', ['ngRoute'])
 		var dataPopulatedPromise;
 
 		function populateAllItems() {
-			$http.get(apiUrl + "getItems").
+			var promise = $http.get(apiUrl + "getItems").
 				success(function (data) {
 					allItems = data;
 				}).
 				error(function (err) {
 					alert("Error connecting to server: " + err);
 				});
+			return promise;
 		}
 
 		var addItem = function (newTask) {
@@ -59,12 +60,12 @@ angular.module('databaseEntry.service', ['ngRoute'])
 		};
 
 		return {
-			addTask:        addItem,
-			getTasks:       getItems,
-			removeTask:     removeItem,
-			getTaskIndex:   getItemIndex,
-			getTaskByIndex: getItemByIndex,
-			updateTask:     updateItem,
+			addItem:        addItem,
+			getItems:       getItems,
+			removeItem:     removeItem,
+			getItemIndex:   getItemIndex,
+			getItemByIndex: getItemByIndex,
+			updateItem:     updateItem,
 			ensureDataPopulated: ensureDataPopulated
 		};
 	}]);
