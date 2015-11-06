@@ -4,7 +4,8 @@
 angular.module('databaseEntry', [
 	'ngRoute',
 	'databaseEntry.view',
-	'databaseEntry.add'
+	'databaseEntry.add',
+	'databaseEntry.service'
 ])
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.otherwise({redirectTo: '/view'});

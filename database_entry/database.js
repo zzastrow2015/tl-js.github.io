@@ -9,17 +9,14 @@ angular.module('databaseEntry.view', ['ngRoute'])
 		});
 	}])
 
-	.controller('ViewCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+	.controller('ViewCtrl', ['$scope', '$location', '$http', 'DatabaseControlService', function ($scope, $location, $http, DatabaseControlService) {
 		var apiUrl = "https://historicaldv.herokuapp.com/";
 
+		//Make sure that the initial data is populated.
+		DatabaseControlService.ensureDataPopulated();
+
 		$scope.get = function () {
-			$http.get(apiUrl + "getItems").
-				success(function (data) {
-					console.log("Results: " + JSON.stringify(data));
-				}).
-			  error(function (err) {
-					console.log("Error: " + err);
-				});
+			console.log(DatabaseControlService.getTasks());
 		};
 
 		$scope.add = function () {
