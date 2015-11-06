@@ -5,6 +5,7 @@ angular.module('databaseEntry', [
 	'ngRoute',
 	'databaseEntry.view',
 	'databaseEntry.list',
+	'databaseEntry.detail',
 	'databaseEntry.service'
 ])
 	.config(['$routeProvider', function ($routeProvider) {

@@ -21,4 +21,8 @@ angular.module('databaseEntry.list', ['ngRoute'])
 			$location.path("/" + where);
 		};
 
+		$scope.goToDetail = function(id) {
+			$location.path("/detail/" + id);
+		};
+
 	}]);

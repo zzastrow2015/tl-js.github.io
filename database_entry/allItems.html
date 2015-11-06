@@ -1,7 +1,18 @@
 <button ng-click="goto('view')" type="submit" class="btn btn-primary btn-block">Add To Database</button>
 
 <div>
-	<div class="list-item" ng-repeat="item in items">
-		{{item.who}}
+	<div class="list-item" ng-repeat="item in items" ng-click="goToDetail(item.id)">
+		<div class="section">
+			Who: {{item.who}}
+		</div>
+		<div class="section">
+			What: {{item.what}}
+		</div>
+		<div class="section">
+			When: {{item.when}}
+		</div>
+		<div class="section">
+			Where: {{item.where}}
+		</div>
 	</div>
 </div>

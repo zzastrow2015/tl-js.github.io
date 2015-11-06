@@ -14,11 +14,10 @@ h1 {
 
 .list-item {
 	text-align: center;
-	height: 1.25em;
+	height: 35px;
 	margin: .2em;
 	background-color: beige;
 	border: 1px solid black;
-	font-family:fantasy;
 }
 
 .list-item:hover {
@@ -56,4 +55,13 @@ h1 {
 
 .fa-list-item {
 
+}
+
+.section {
+	float: left;
+	width: 25%;
+	height: 30px;
+	text-align: start;
+	border-right: 1px solid gray;
+	overflow-x: scroll;
 }
