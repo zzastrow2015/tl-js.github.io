@@ -26,7 +26,31 @@ angular.module('databaseEntry.service', ['ngRoute'])
 		};
 
 		var updateItem = function (index, updatedTask) {
-			allItems[index] = updatedTask;
+			var request = $http({
+				method: "post",
+				url: apiUrl + "updateItem",
+				data: {
+					tableName: "links",
+					id:index,
+					who:updatedTask.who,
+					what:updatedTask.what,
+					when:updatedTask.when,
+					where:updatedTask.where,
+					ranking:updatedTask.significance
+				}
+			});
+
+			request.success(function (data) {
+				for (var i in allItems) {
+					if (allItems[i].id == index) {
+						allItems[i] = updatedTask;
+					}
+				}
+			});
+
+			request.error(function (err) {
+				alert("Error connecting to the server.");
+			});
 		};
 
 		var getItems = function () {
@@ -40,30 +64,41 @@ angular.module('databaseEntry.service', ['ngRoute'])
 			return dataPopulatedPromise;
 		};
 
-		var removeItem = function (taskToRemove, index) {
-			if (!index) {
-				index = allItems.indexOf(taskToRemove);
-			}
-			if (index != -1) {
-				allItems.splice(index, 1);
-			}
-		};
+		var removeItem = function (index) {
+			var request = $http({
+				method: "post",
+				url: apiUrl + "deleteItem",
+				data: {
+					tableName: "links",
+					id:index
+				}
+			});
 
-		var getItemIndex = function (task) {
-			console.log(allItems);
-			console.log(task);
-			return allItems.indexOf(task);
+			request.success(function (data) {
+				for (var i in allItems) {
+					if (allItems[i].id == index) {
+						allItems.splice(i, 1);
+					}
+				}
+			});
+
+			request.error(function (err) {
+				alert("Error connecting to the server.");
+			});
 		};
 
 		var getItemByIndex = function (index) {
-			return allItems[index];
+			for (var i in allItems) {
+				if (allItems[i].id == index) {
+					return allItems[i];
+				}
+			}
 		};
 
 		return {
 			addItem:        addItem,
 			getItems:       getItems,
 			removeItem:     removeItem,
-			getItemIndex:   getItemIndex,
 			getItemByIndex: getItemByIndex,
 			updateItem:     updateItem,
 			ensureDataPopulated: ensureDataPopulated

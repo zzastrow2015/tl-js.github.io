@@ -14,11 +14,21 @@ angular.module('databaseEntry.detail', ['ngRoute'])
 
 		//Make sure that the initial data is populated.
 		DatabaseControlService.ensureDataPopulated().then(function () {
-			$scope.item = DatabaseControlService.getItemByIndex(itemId);
+			//			Thu Jan 01 2015 01:00:00 GMT-0600 (CST)
+			$scope.item = DatabaseControlService.getItemByIndex(itemId-1);
+			$scope.item.when = moment($scope.item.when)._d;
 		});
 
 		$scope.goto = function (where) {
 			$location.path("/" + where);
+		};
+
+		$scope.updateItem = function (id) {
+			debugger;
+		};
+
+		$scope.deleteItem = function (id) {
+			debugger;
 		};
 
 	}]);
