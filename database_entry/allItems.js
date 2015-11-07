@@ -10,11 +10,10 @@ angular.module('databaseEntry.list', ['ngRoute'])
 	}])
 
 	.controller('ListCtrl', ['$scope', '$location', '$http', 'DatabaseControlService', function ($scope, $location, $http, DatabaseControlService) {
-		var apiUrl = "https://historicaldv.herokuapp.com/";
-
 		//Make sure that the initial data is populated.
 		DatabaseControlService.ensureDataPopulated().then(function () {
 			$scope.items = DatabaseControlService.getItems();
+			$(".se-pre-con").fadeOut("slow");
 		});
 
 		$scope.goto = function (where) {

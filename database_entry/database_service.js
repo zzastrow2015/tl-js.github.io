@@ -18,32 +18,47 @@ angular.module('databaseEntry.service', ['ngRoute'])
 			return promise;
 		}
 
-		var addItem = function (newTask) {
-			var deferred = $q.defer();
-			allItems.push(newTask);
-			deferred.resolve();
-			return deferred.promise;
+		var addItem = function (newItem) {
+			var request = $http({
+				method: "post",
+				url: apiUrl + "addItem",
+				data: {
+					tableName: "links",
+					who:newItem.who,
+					what:newItem.what,
+					when:newItem.when,
+					where:newItem.where,
+					ranking:newItem.ranking
+				}
+			});
+
+			request.success(function (data) {
+				console.log(data);
+				populateAllItems();
+			});
+
+			return request;
 		};
 
-		var updateItem = function (index, updatedTask) {
+		var updateItem = function (index, updatedItem) {
 			var request = $http({
 				method: "post",
 				url: apiUrl + "updateItem",
 				data: {
 					tableName: "links",
 					id:index,
-					who:updatedTask.who,
-					what:updatedTask.what,
-					when:updatedTask.when,
-					where:updatedTask.where,
-					ranking:updatedTask.significance
+					who:updatedItem.who,
+					what:updatedItem.what,
+					when:updatedItem.when,
+					where:updatedItem.where,
+					ranking:updatedItem.ranking
 				}
 			});
 
 			request.success(function (data) {
 				for (var i in allItems) {
 					if (allItems[i].id == index) {
-						allItems[i] = updatedTask;
+						allItems[i] = updatedItem;
 					}
 				}
 			});
@@ -51,6 +66,8 @@ angular.module('databaseEntry.service', ['ngRoute'])
 			request.error(function (err) {
 				alert("Error connecting to the server.");
 			});
+
+			return request;
 		};
 
 		var getItems = function () {
@@ -85,6 +102,8 @@ angular.module('databaseEntry.service', ['ngRoute'])
 			request.error(function (err) {
 				alert("Error connecting to the server.");
 			});
+
+			return request;
 		};
 
 		var getItemByIndex = function (index) {

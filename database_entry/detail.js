@@ -12,11 +12,13 @@ angular.module('databaseEntry.detail', ['ngRoute'])
 	.controller('DetailCtrl', ['$scope', '$location', '$routeParams', 'DatabaseControlService', function ($scope, $location, $routeParams, DatabaseControlService) {
 		var itemId = $routeParams.id;
 
+		$(".se-pre-con").fadeIn("slow");
 		//Make sure that the initial data is populated.
 		DatabaseControlService.ensureDataPopulated().then(function () {
 			//			Thu Jan 01 2015 01:00:00 GMT-0600 (CST)
-			$scope.item = DatabaseControlService.getItemByIndex(itemId-1);
+			$scope.item = DatabaseControlService.getItemByIndex(itemId);
 			$scope.item.when = moment($scope.item.when)._d;
+			$(".se-pre-con").fadeOut("slow");
 		});
 
 		$scope.goto = function (where) {
@@ -24,11 +26,30 @@ angular.module('databaseEntry.detail', ['ngRoute'])
 		};
 
 		$scope.updateItem = function (id) {
-			debugger;
+			if (!$scope.item.who || !$scope.item.what || !$scope.item.when || !$scope.item.where || !$scope.item.ranking) {
+				return;
+			}
+
+			var when = $scope.item.when.toString();
+			when = when.substr(0, when.length - 15);
+
+			var updateItem = {
+				who: $scope.item.who.replace("'", "/"),
+				what: $scope.item.what.replace("'", "/"),
+				when: when,
+				where: $scope.item.where.replace("'", "/"),
+				ranking: $scope.item.ranking
+			};
+
+			DatabaseControlService.updateItem(id, updateItem).then(function (data) {
+				alert("Successfully updated.");
+			});
 		};
 
 		$scope.deleteItem = function (id) {
-			debugger;
+			DatabaseControlService.removeItem(id).then(function (data) {
+				$path.location('/list');
+			});
 		};
 
 	}]);

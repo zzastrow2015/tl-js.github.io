@@ -10,10 +10,10 @@ angular.module('databaseEntry.view', ['ngRoute'])
 	}])
 
 	.controller('ViewCtrl', ['$scope', '$location', '$http', 'DatabaseControlService', function ($scope, $location, $http, DatabaseControlService) {
-		var apiUrl = "https://historicaldv.herokuapp.com/";
-
 		//Make sure that the initial data is populated.
-		DatabaseControlService.ensureDataPopulated();
+		DatabaseControlService.ensureDataPopulated().then(function () {
+			$(".se-pre-con").fadeOut("slow");
+		});
 
 		$scope.get = function () {
 			console.log(DatabaseControlService.getTasks());
@@ -24,37 +24,20 @@ angular.module('databaseEntry.view', ['ngRoute'])
 				return;
 			}
 
-			var who = $scope.who.replace("'", "/");
-			var what = $scope.what.replace("'", "/");
 			var when = $scope.when.toString();
-			var where = $scope.where.replace("'", "/");
-
 			when = when.substr(0, when.length - 15);
 
-			var request = $http({
-				method: "post",
-				url: apiUrl + "addItem",
-				data: {
-					tableName: "links",
-					who:who,
-					what:what,
-					when:when,
-					where:where,
-					ranking:$scope.significance
-				}
-			});
+			var addItem = {
+				who: $scope.who.replace("'", "/"),
+				what: $scope.what.replace("'", "/"),
+				when: when,
+				where: $scope.where.replace("'", "/"),
+				ranking: $scope.significance
+			};
 
-			request.success(function (data) {
-				console.log(data);
+			DatabaseControlService.addItem(addItem).then(function () {
+				alert("Success!");
 			});
-
-			$http.post(apiUrl + "cool").
-				success(function (data) {
-					console.log(data);
-				}).
-				error(function (data) {
-					console.log(data);
-				});
 		};
 
 		$scope.goto = function (where) {
