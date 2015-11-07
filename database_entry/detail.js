@@ -12,10 +12,9 @@ angular.module('databaseEntry.detail', ['ngRoute'])
 	.controller('DetailCtrl', ['$scope', '$location', '$routeParams', 'DatabaseControlService', function ($scope, $location, $routeParams, DatabaseControlService) {
 		var itemId = $routeParams.id;
 
-		$(".se-pre-con").fadeIn("slow");
+		$(".se-pre-con").show();
 		//Make sure that the initial data is populated.
 		DatabaseControlService.ensureDataPopulated().then(function () {
-			//			Thu Jan 01 2015 01:00:00 GMT-0600 (CST)
 			$scope.item = DatabaseControlService.getItemByIndex(itemId);
 			$scope.item.when = moment($scope.item.when)._d;
 			$(".se-pre-con").fadeOut("slow");
