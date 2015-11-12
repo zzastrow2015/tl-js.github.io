@@ -1,22 +1,64 @@
 'use strict';
 
 angular.module('databaseEntry.service', ['ngRoute'])
-		.service('DatabaseControlService', ['$q', '$http', function ($q, $http) {
+	.service('DatabaseControlService', ['$q', '$http', function ($q, $http) {
 
 		var apiUrl = "https://historicaldv.herokuapp.com/";
 		var allItems = [];
+		var queryData = [];
 		var dataPopulatedPromise;
 
 		function populateAllItems() {
-			var promise = $http.get(apiUrl + "getItems").
+			return $http.get(apiUrl + "getItems").
 				success(function (data) {
 					allItems = data;
 				}).
 				error(function (err) {
 					alert("Error connecting to server: " + err);
 				});
-			return promise;
 		}
+
+		var queryForWhat = function (what) {
+			var request = $http({
+				method: "post",
+				url: apiUrl + "getItemsByWhat",
+				data: {
+					tableName: "links",
+					what: what
+				}
+			});
+
+			request.success(function (data) {
+				queryData = data;
+			});
+
+			request.error(function (err) {
+				queryData = [];
+			});
+
+			return request;
+		};
+
+		var queryForWho = function (who) {
+			var request = $http({
+				method: "post",
+				url: apiUrl + "getItemsByWho",
+				data: {
+					tableName: "links",
+					who: who
+				}
+			});
+
+			request.success(function (data) {
+				queryData = data;
+			});
+
+			request.error(function (err) {
+				queryData = [];
+			});
+
+			return request;
+		};
 
 		var addItem = function (newItem) {
 			var request = $http({
@@ -61,6 +103,7 @@ angular.module('databaseEntry.service', ['ngRoute'])
 						allItems[i] = updatedItem;
 					}
 				}
+				populateAllItems();
 			});
 
 			request.error(function (err) {
@@ -72,6 +115,10 @@ angular.module('databaseEntry.service', ['ngRoute'])
 
 		var getItems = function () {
 			return allItems;
+		};
+
+		var getQueryItems = function () {
+			return queryData;
 		};
 
 		var ensureDataPopulated = function () {
@@ -117,9 +164,12 @@ angular.module('databaseEntry.service', ['ngRoute'])
 		return {
 			addItem:        addItem,
 			getItems:       getItems,
+			getQueryItems: getQueryItems,
 			removeItem:     removeItem,
 			getItemByIndex: getItemByIndex,
 			updateItem:     updateItem,
-			ensureDataPopulated: ensureDataPopulated
+			ensureDataPopulated: ensureDataPopulated,
+			queryForWho: queryForWho,
+			queryForWhat: queryForWhat
 		};
 	}]);
