@@ -173,7 +173,6 @@ angular.module('histViewer.main', ['ngRoute'])
 		}
 
 		function createTimeline(events) {
-console.log(events);
 			if (isFirstTimeline) {
 				isFirstTimeline = false;
 				var cont = $("#timelineContainer");
