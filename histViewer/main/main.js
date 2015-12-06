@@ -148,6 +148,7 @@ angular.module('histViewer.main', ['ngRoute'])
 					maxDate = moment(events[i].when);
 				}
 			}
+			maxDate.add(1, 'years');
 			return maxDate;
 		}
 
@@ -246,6 +247,7 @@ angular.module('histViewer.main', ['ngRoute'])
 					people.push(currentPerson);
 				}
 			}
+			people = $.unique(people);
 			$scope.people = people;
 		}
 
