@@ -173,6 +173,41 @@ angular.module('histViewer.main', ['ngRoute'])
 			$("#timelineDrawSpace").append(div);
 		}
 
+		function checkCloseObjects (events, yearGap, minYear, maxYear) {
+			var arr = [];
+			var needsAdjustment = false;
+			for (var i = 0; i < (maxYear - minYear); i++) {
+				arr[i] = 0;
+			}
+
+			for (var i in events) {
+				var eventYear = moment(events[i].when).year();
+				arr[(eventYear - minYear)] += 1;
+				if (arr[(eventYear - minYear)] > 2) {
+					needsAdjustment = true;
+					break;
+				}
+			}
+			if (needsAdjustment) {
+				switch (yearGap) {
+					case 10:
+						yearGap = 5;
+						break;
+					case 5:
+						yearGap = 2;
+						break;
+					case 2:
+						yearGap = 1;
+						break;
+					default:
+						yearGap = yearGap/2;
+						break;
+				}
+			}
+
+			return yearGap;
+		}
+
 		function createTimeline(events) {
 			if (isFirstTimeline) {
 				isFirstTimeline = false;
@@ -197,6 +232,8 @@ angular.module('histViewer.main', ['ngRoute'])
 				if (maxYear - minYear < 40) {
 					yearGap = 2;
 				}
+
+				yearGap = checkCloseObjects(events, yearGap, minYear, maxYear);
 
 				if (minYear % yearGap != 0) {
 					minYear -= (minYear % yearGap);
