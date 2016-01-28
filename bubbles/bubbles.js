@@ -15,7 +15,7 @@ angular.module('bubbleView.view', ['ngRoute'])
 		};
 	})
 
-	.controller('ViewCtrl', ['$scope', function ($scope) {
+	.controller('ViewCtrl', ['$scope', 'DatabaseControlService', function ($scope, DatabaseControlService) {
 		function getItemNumFromID(id) {
 			for (var i = 0; i < testData.length; i++) {
 				if (testData[i].id == id) {
@@ -24,6 +24,10 @@ angular.module('bubbleView.view', ['ngRoute'])
 			}
 			return -1;
 		}
+
+		DatabaseControlService.ensureDataPopulated().then(function () {
+			$scope.items = DatabaseControlService.getItems();
+		});
 
 		var currentItem;
 		$scope.history = [];

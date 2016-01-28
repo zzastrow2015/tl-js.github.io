@@ -361,10 +361,8 @@
 .deg-360 { transform: rotate(360deg) translate(14em) rotate(-360deg); }
 
 .bubble-center {
-	background:#71c8ff;
+	background:#71c8ff no-repeat center;
 	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 	border-radius: 50%;
 	margin: -9em !important;
 	width: 18em !important;
@@ -383,10 +381,8 @@
 }
 
 .bubble-ring {
-	background: white;
+	background: white no-repeat center;
 	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 	border-radius: 50%;
 	margin: -4.5em !important;
 	width: 9em !important;
@@ -428,7 +424,7 @@
 .bubble-container span {
 	font-size: 1.25em;
 	color: white;
-	text-shadow: 2px 0 0 #000000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+	text-shadow: 2px 0 0 #000000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .bubble-fa-icon {
